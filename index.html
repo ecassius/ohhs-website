@@ -312,7 +312,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* ─────────────────────────────────────────
    SHARED SECTION STYLES
 ───────────────────────────────────────── */
-.section { padding: 88px 48px; }
+.section { padding: 120px 48px; }
 
 .section-header {
   display: flex;
@@ -329,6 +329,19 @@ img { display: block; max-width: 100%; height: auto; }
   text-transform: uppercase;
   color: var(--blue);
   margin: 0;
+}
+
+/* Editorial section label — discreet Bellerose-style heading */
+.section-label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(28,26,24,0.15);
+  line-height: 1;
 }
 
 /* Friends title stays white — on blue background */
@@ -365,7 +378,7 @@ img { display: block; max-width: 100%; height: auto; }
   min-height: 80vh;
 }
 .store-visual { order: 1; }
-.store-copy   { order: 2; display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; }
+.store-copy   { order: 2; display: flex; flex-direction: column; justify-content: center; padding: 100px 72px; }
 
 .store-carousel {
   display: grid;
@@ -383,7 +396,7 @@ img { display: block; max-width: 100%; height: auto; }
 .store-slide.s3 { background-image: url('/images/shop-3.jpg'); }
 .store-slide.s4 { background-image: url('/images/shop-4.jpg'); }
 
-.store-copy .section-title { margin-bottom: 28px; }
+.store-copy .section-label { margin-bottom: 32px; }
 .store-copy p { font-size: 18px; line-height: 1.55; color: var(--dark); margin: 0 0 18px; }
 .store-copy p:last-of-type { margin-bottom: 28px; }
 
@@ -403,13 +416,13 @@ img { display: block; max-width: 100%; height: auto; }
   order: 1;
   display: flex;
   flex-direction: column;
-  padding: 80px 64px;
+  padding: 100px 72px;
 }
 .find-us-map { order: 2; }
 
 /* Title and intro sit at top */
 .find-us-top { margin-bottom: 0; }
-.find-us-top .section-title { margin-bottom: 16px; }
+.find-us-top .section-label { margin-bottom: 20px; }
 .find-us-intro {
   font-size: 18px;
   line-height: 1.55;
@@ -480,7 +493,7 @@ img { display: block; max-width: 100%; height: auto; }
 .lookbook { background: var(--bg); }
 
 .lookbook-header { max-width: 900px; margin-bottom: 56px; }
-.lookbook-header .section-title { margin-bottom: 28px; }
+.lookbook-header .section-label { margin-bottom: 32px; }
 .lookbook-header p { font-size: 18px; line-height: 1.55; color: var(--dark); margin: 0 0 16px; }
 
 .look-grid-wrap { }
@@ -540,8 +553,8 @@ img { display: block; max-width: 100%; height: auto; }
   min-height: 100%;
   background: var(--bg) url('/images/jeans.jpg') center/cover no-repeat;
 }
-.jeans-copy { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; }
-.jeans-copy .section-title { margin-bottom: 28px; }
+.jeans-copy { display: flex; flex-direction: column; justify-content: center; padding: 100px 72px; }
+.jeans-copy .section-label { margin-bottom: 32px; }
 .jeans-copy p { font-size: 18px; line-height: 1.55; color: var(--dark); margin: 0 0 18px; }
 
 
@@ -561,8 +574,8 @@ img { display: block; max-width: 100%; height: auto; }
   min-height: 100%;
   background: #ccc url('/images/molecules.jpg') center/cover no-repeat;
 }
-.molecules-copy { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; gap: 0; }
-.molecules-copy .section-title { margin-bottom: 28px; }
+.molecules-copy { display: flex; flex-direction: column; justify-content: center; padding: 100px 72px; gap: 0; }
+.molecules-copy .section-label { margin-bottom: 32px; }
 .molecules-copy p { font-size: 18px; line-height: 1.55; color: var(--dark); margin: 0 0 18px; }
 .molecules-copy p:last-child { margin-bottom: 0; }
 
@@ -873,7 +886,7 @@ img { display: block; max-width: 100%; height: auto; }
   .hero-sub { max-width: 300px; font-size: 16px; }
   .hero-cta { left: 24px; right: auto; bottom: 36px; align-items: flex-start; }
 
-  .section { padding: 64px 24px; }
+  .section { padding: 80px 24px; }
 
   /* Stack these only on small mobile */
   .friends-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -1127,7 +1140,7 @@ img { display: block; max-width: 100%; height: auto; }
       </div>
     </div>
     <div class="store-copy">
-      <h2 class="section-title">The Store</h2>
+      <h2 class="section-label">The Store</h2>
       <p data-cms="store_copy_1">One Hundred High Street is run by Sue and Debbie, who have been dressing women for years from their two floored shop on Teddington High Street. Every piece in the shop is something they've chosen themselves — brands they've discovered, worn, and kept coming back to season after season.</p>
       <p data-cms="store_copy_2">They're supported by a brilliant team of women who between them genuinely love what they do — make you look and feel good.</p>
       <p data-cms="store_copy_3">Whether you're popping in for a quick look or staying a little longer to try things on and talk things through, you'll always find a friendly face. And if you're on the hunt for the perfect pair of jeans, they offer a personalised fitting service in store too.</p>
@@ -1141,7 +1154,7 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="find-us-grid reveal">
     <div class="find-us-info">
       <div class="find-us-top">
-        <h2 class="section-title">Find Us</h2>
+        <h2 class="section-label">Find Us</h2>
         <p class="find-us-intro">You'll find us on Teddington High Street, opposite Marks &amp; Spencer.</p>
       </div>
       <div class="find-us-address">
@@ -1181,7 +1194,7 @@ img { display: block; max-width: 100%; height: auto; }
 <!-- THE EDIT -->
 <section class="section lookbook" id="lookbook">
   <div class="lookbook-header reveal">
-    <h2 class="section-title">The Edit</h2>
+    <h2 class="section-label">The Edit</h2>
     <p>Our brand selection has been curated over more than a decade of dedicated buying — labels that have proven themselves season after season. Some pieces are quiet everyday staples. Others have a little more personality. We love both. The joy is in finding what works for you.</p>
     <p>Alongside clothing you'll find footwear, jewellery, bags and scarves — the finishing details, and occasionally the thing you simply can't leave without.</p>
   </div>
@@ -1216,7 +1229,7 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="jeans-grid reveal">
     <div class="jeans-image" data-cms="jeans_image"></div>
     <div class="jeans-copy">
-      <h2 class="section-title">The Jeans</h2>
+      <h2 class="section-label">The Jeans</h2>
       <p data-cms="jeans_copy_1">Jeans are kind of our thing.</p>
       <p data-cms="jeans_copy_2">Finding the right denim that works for you can be a real struggle. Over the years we've helped countless customers find the shape that truly works for them, carrying denim from NYDJ, Red Button, Free People, Ichi, Oui and Bellerose — with fits from cropped and straight to barrel and boyfriend. Pop in and we'll help you find yours.</p>
     </div>
@@ -1228,7 +1241,7 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="molecules-grid reveal">
     <div class="molecules-image" data-cms="molecules_image"></div>
     <div class="molecules-copy">
-      <h2 class="section-title">Escentric Molecules</h2>
+      <h2 class="section-label">Escentric Molecules</h2>
       <p data-cms="molecules_copy_1">We love Escentric Molecules — and we're the only place in Teddington and Richmond where you can find their scents in person.</p>
       <p data-cms="molecules_copy_2">It's a cult fragrance brand built around a single aroma-molecule, Iso E Super, that reacts with your skin rather than sitting on top of it. The result is a scent that smells genuinely different on everyone. Available in store.</p>
     </div>
