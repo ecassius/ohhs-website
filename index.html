@@ -266,7 +266,7 @@ img { display: block; max-width: 100%; height: auto; }
   line-height: 0.88;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  margin: 0 0 24px;
+  margin: 0;
 }
 .hero-headline .one  { color: var(--blue); font-weight: 800; }
 .hero-headline .rest { color: #fff; }
@@ -319,29 +319,29 @@ img { display: block; max-width: 100%; height: auto; }
   line-height: 0.95;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--dark);
   margin: 0;
 }
 
 /* Editorial section label — flush left, no decoration */
 .section-label {
-  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: #235BA8;
+  color: var(--dark);
   margin: 0 0 32px;
-  line-height: 1;
 }
 
 /* Friends title stays white — on blue background */
 .friends-title-row .section-title { color: #fff; margin: 0; }
 .section-intro {
-  font-size: 18px;
-  line-height: 1.55;
+  font-size: 15px;
+  line-height: 1.65;
   color: var(--grey);
   max-width: 700px;
-  margin: 12px 0 0;
+  margin: 0 0 36px;
 }
 .section-link {
   font-size: 11px;
@@ -374,7 +374,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .store-images {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 3px;
   margin-bottom: 56px;
 }
@@ -385,6 +385,8 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .store-img.s1 { background-image: url('/images/shop-1.jpg'); }
 .store-img.s2 { background-image: url('/images/shop-2.jpg'); }
+.store-img.s3 { background-image: url('/images/shop-3.jpg'); }
+.store-img.s4 { background-image: url('/images/shop-4.jpg'); }
 
 .store-text-grid {
   display: grid;
@@ -464,7 +466,7 @@ img { display: block; max-width: 100%; height: auto; }
 .lookbook { background: #fff; }
 
 .lookbook-header { max-width: 900px; margin-bottom: 56px; }
-.lookbook-header .section-label { margin-bottom: 32px; }
+.lookbook-header .section-label { margin-bottom: 28px; }
 .lookbook-header p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 16px; }
 
 .look-grid-wrap { }
@@ -892,8 +894,10 @@ img { display: block; max-width: 100%; height: auto; }
   .look-img  { aspect-ratio: 3/4; }
 
   .store { padding: 56px 24px; }
+  .store-images { grid-template-columns: repeat(2, 1fr); }
   .store-text-grid { grid-template-columns: 1fr; gap: 0; }
   .store-text-spacer { display: none; }
+  .store-statement { font-size: clamp(24px, 6vw, 36px); }
 
   .jeans { padding: 56px 24px; }
   .jeans-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -903,10 +907,13 @@ img { display: block; max-width: 100%; height: auto; }
   .molecules .section-label { padding-left: 24px; }
   .molecules-image-grid { grid-template-columns: 1fr; }
   .molecules-image-spacer { display: none; }
+  .molecules-image { aspect-ratio: 16/10; }
   .molecules-text-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 24px; }
 
   .find-us { padding: 56px 24px; }
   .find-us-grid { grid-template-columns: 1fr; gap: 32px; }
+  .find-us-map { min-height: 300px; }
+  .find-us-map iframe { min-height: 300px; }
 
   .friends-form { grid-template-columns: 1fr; }
 
@@ -923,8 +930,8 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 @media (max-width: 640px) {
-  .arrivals-grid { grid-template-columns: 1fr; }
-  .store-images { grid-template-columns: 1fr; }
+  .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
+  .store-images { grid-template-columns: 1fr 1fr; }
   .footer-nav { flex-direction: column; gap: 20px; }
   .footer-col { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid rgba(122,125,129,0.10); padding-bottom: 16px; }
   .footer-col:last-child { border-bottom: none; padding-bottom: 0; }
@@ -934,52 +941,6 @@ img { display: block; max-width: 100%; height: auto; }
    ANIMATIONS
 ───────────────────────────────────────── */
 
-/* Hero load — elements fade up on page load */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.hero-eyebrow {
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both;
-}
-.hero-headline {
-  animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.25s both;
-}
-.hero-cta {
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s both;
-}
-
-/* Scroll reveal — sections fade up as they enter viewport */
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
-              transform 0.8s cubic-bezier(0.16,1,0.3,1);
-}
-.reveal.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger children within a reveal parent */
-.reveal-children > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
-              transform 0.7s cubic-bezier(0.16,1,0.3,1);
-}
-.reveal-children.in-view > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
-.reveal-children.in-view > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.12s; }
-.reveal-children.in-view > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.19s; }
-.reveal-children.in-view > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.26s; }
-.reveal-children.in-view > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.33s; }
-.reveal-children.in-view > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.40s; }
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .reveal, .reveal-children > * { transition: none; opacity: 1; transform: none; }
-  .hero-eyebrow, .hero-headline, .hero-cta { animation: none; }
-}
 
 /* Image hover — subtle zoom, already on edit grid, extending site-wide */
 .arrival-item { overflow: hidden; }
@@ -1119,12 +1080,14 @@ img { display: block; max-width: 100%; height: auto; }
 
 <!-- THE STORE -->
 <section class="store" id="store">
-  <div class="reveal">
+  <div>
     <h2 class="section-label">The Store</h2>
     <p class="store-statement">A place to look and feel good.</p>
     <div class="store-images">
       <div class="store-img s1" data-cms="store_image_1"></div>
       <div class="store-img s2" data-cms="store_image_2"></div>
+      <div class="store-img s3" data-cms="store_image_3"></div>
+      <div class="store-img s4" data-cms="store_image_4"></div>
     </div>
     <div class="store-text-grid">
       <div class="store-text-spacer"></div>
@@ -1140,7 +1103,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 <!-- FIND US -->
 <section class="find-us" id="find-us">
-  <div class="reveal">
+  <div>
     <h2 class="section-label">Find Us</h2>
     <div class="find-us-grid">
       <div class="find-us-info">
@@ -1159,13 +1122,9 @@ img { display: block; max-width: 100%; height: auto; }
 </section>
 <!-- IN SEASON -->
 <section class="section arrivals" id="arrivals">
-  <div class="section-header">
-    <div>
-      <h2 class="section-title">In Season</h2>
-      <p class="section-intro">A snapshot of the things we're particularly fond of this season — while stocks last.</p>
-    </div>
-  </div>
-  <div class="arrivals-grid reveal-children" id="in-season-grid">
+  <h2 class="section-label">In Season</h2>
+  <p class="section-intro">A snapshot of the things we're particularly fond of this season — while stocks last.</p>
+  <div class="arrivals-grid" id="in-season-grid">
     <div class="arrival-item a1"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Trousers</div><div class="arrival-brand">American Vintage</div></div></div>
     <div class="arrival-item a2"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Sleeveless</div><div class="arrival-brand">American Vintage</div></div></div>
     <div class="arrival-item a3"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Sweater</div><div class="arrival-brand">Bellerose</div></div></div>
@@ -1177,7 +1136,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 <!-- THE EDIT -->
 <section class="section lookbook" id="lookbook">
-  <div class="lookbook-header reveal">
+  <div class="lookbook-header">
     <h2 class="section-label">The Edit</h2>
     <p>Our brand selection has been curated over more than a decade of dedicated buying — labels that have proven themselves season after season. Some pieces are quiet everyday staples. Others have a little more personality. We love both. The joy is in finding what works for you.</p>
     <p>Alongside clothing you'll find footwear, jewellery, bags and scarves — the finishing details, and occasionally the thing you simply can't leave without.</p>
@@ -1210,7 +1169,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 <!-- THE JEANS -->
 <section class="jeans" id="jeans">
-  <div class="reveal">
+  <div>
     <h2 class="section-label">The Jeans</h2>
     <div class="jeans-grid">
       <div class="jeans-copy">
@@ -1224,7 +1183,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 <!-- ESCENTRIC MOLECULES -->
 <section class="molecules" id="molecules">
-  <div class="reveal">
+  <div>
     <h2 class="section-label">Escentric Molecules</h2>
     <div class="molecules-image-grid">
       <div class="molecules-image-spacer"></div>
@@ -1419,20 +1378,6 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 60) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
 }, { passive: true });
-
-// SCROLL REVEAL — fade sections up as they enter viewport
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.reveal, .reveal-children').forEach(el => {
-  revealObserver.observe(el);
-});
 
 // FRIENDS POPUP — shows after 4s, closes on X
 const popup = document.getElementById('friendsPopup');
