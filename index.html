@@ -270,14 +270,6 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .hero-headline .one  { color: var(--blue); font-weight: 800; }
 .hero-headline .rest { color: #fff; }
-.hero-sub {
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(246,240,235,0.70);
-  margin: 0;
-  white-space: nowrap;
-}
 
 .hero-cta {
   position: absolute;
@@ -312,7 +304,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* ─────────────────────────────────────────
    SHARED SECTION STYLES
 ───────────────────────────────────────── */
-.section { padding: 120px 48px; }
+.section { padding: 80px 48px; }
 
 .section-header {
   display: flex;
@@ -331,16 +323,14 @@ img { display: block; max-width: 100%; height: auto; }
   margin: 0;
 }
 
-/* Editorial section label — discreet Bellerose-style heading */
+/* Editorial section label — flush left, no decoration */
 .section-label {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--grey);
-  margin: 0 0 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(28,26,24,0.15);
+  color: #235BA8;
+  margin: 0 0 32px;
   line-height: 1;
 }
 
@@ -369,98 +359,79 @@ img { display: block; max-width: 100%; height: auto; }
 /* ─────────────────────────────────────────
    THE STORE — image left, copy right
 ───────────────────────────────────────── */
-.store { background: #fff; padding: 0; }
-.store-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  align-items: stretch;
-  min-height: 80vh;
-}
-.store-visual { order: 1; }
-.store-copy   { order: 2; display: flex; flex-direction: column; justify-content: center; padding: 100px 72px; }
+.store { background: #fff; padding: 80px 48px; }
 
-.store-carousel {
+.store-statement {
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+
+.store-images {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   gap: 3px;
-  height: 100%;
+  margin-bottom: 56px;
 }
-.store-slide {
+.store-img {
+  width: 100%;
+  aspect-ratio: 4/5;
   background: #ccc center/cover no-repeat;
-  min-height: 0;
 }
-.store-slide.s1 { background-image: url('/images/shop-1.jpg'); }
-.store-slide.s2 { background-image: url('/images/shop-2.jpg'); }
-.store-slide.s3 { background-image: url('/images/shop-3.jpg'); }
-.store-slide.s4 { background-image: url('/images/shop-4.jpg'); }
+.store-img.s1 { background-image: url('/images/shop-1.jpg'); }
+.store-img.s2 { background-image: url('/images/shop-2.jpg'); }
 
-.store-copy .section-label { margin-bottom: 32px; }
-.store-copy p { font-size: 18px; line-height: 1.55; color: var(--dark); margin: 0 0 18px; }
+.store-text-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+.store-text-spacer { }
+.store-copy p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 18px; }
 .store-copy p:last-of-type { margin-bottom: 28px; }
 
 
 /* ─────────────────────────────────────────
    FIND US — text left, map right
 ───────────────────────────────────────── */
-.find-us { background: var(--bg); padding: 0; }
+.find-us { background: #fff; padding: 80px 48px; }
 .find-us-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  align-items: stretch;
-  min-height: 60vh;
+  grid-template-columns: 0.45fr 0.55fr;
+  gap: 64px;
+  align-items: start;
 }
-.find-us-info {
-  order: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 100px 72px;
-}
-.find-us-map { order: 2; }
-
-/* Title and intro sit at top */
-.find-us-top { margin-bottom: 0; }
-.find-us-top .section-label { margin-bottom: 20px; }
-.find-us-intro {
-  font-size: 18px;
-  line-height: 1.55;
+.find-us-heading {
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
   color: var(--dark);
-  margin: 0;
+  margin: 0 0 32px;
 }
-
-/* Address block pushed down with auto margin */
-.find-us-address {
-  margin-top: auto;
-  padding-top: 32px;
-}
-.find-us-address p {
-  font-size: 18px;
-  line-height: 1.55;
+.find-us-info p {
+  font-size: 15px;
+  line-height: 1.65;
   color: var(--dark);
   margin: 0 0 12px;
 }
-.find-us-address p:last-child { margin-bottom: 0; }
-.find-us-address strong { font-weight: 700; }
-.find-us-address a { color: var(--blue); }
+.find-us-info p:last-child { margin-bottom: 0; }
+.find-us-info a { color: var(--blue); }
 
-.find-us-map { min-height: 460px; background: #ddd; overflow: hidden; }
-.find-us-map iframe { width: 100%; height: 100%; min-height: 460px; border: none; display: block; }
-.find-us-map-placeholder {
-  width: 100%; height: 100%; min-height: 460px;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 12px; background: #e4dfd8;
-}
-.find-us-map-placeholder span { font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--grey); }
-.find-us-map-placeholder a { font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--blue); border-bottom: 1px solid var(--blue); padding-bottom: 2px; }
+.find-us-map { min-height: 400px; background: #ddd; overflow: hidden; }
+.find-us-map iframe { width: 100%; height: 100%; min-height: 400px; border: none; display: block; }
 
 
 /* ─────────────────────────────────────────
    IN SEASON
 ───────────────────────────────────────── */
 .arrivals { background: #fff; }
+
 .arrivals-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -490,11 +461,11 @@ img { display: block; max-width: 100%; height: auto; }
    Desktop: 5-col contained grid (Zara-feel — not full-bleed)
    Mobile:  2-col square (Instagram-feel)
 ───────────────────────────────────────── */
-.lookbook { background: var(--bg); }
+.lookbook { background: #fff; }
 
 .lookbook-header { max-width: 900px; margin-bottom: 56px; }
 .lookbook-header .section-label { margin-bottom: 32px; }
-.lookbook-header p { font-size: 18px; line-height: 1.55; color: var(--dark); margin: 0 0 16px; }
+.lookbook-header p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 16px; }
 
 .look-grid-wrap { }
 .look-grid {
@@ -540,43 +511,65 @@ img { display: block; max-width: 100%; height: auto; }
 /* ─────────────────────────────────────────
    THE JEANS — title full-width, image left / copy right
 ───────────────────────────────────────── */
-.jeans { background: #fff; padding: 0; }
+.jeans { background: #fff; padding: 80px 48px; }
 .jeans-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  align-items: stretch;
-  min-height: 70vh;
+  grid-template-columns: 0.55fr 0.45fr;
+  gap: 64px;
+  align-items: start;
+}
+.jeans-heading {
+  font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--dark);
+  margin: 0 0 32px;
 }
 .jeans-image {
   width: 100%;
-  min-height: 100%;
-  background: var(--bg) url('/images/jeans.jpg') center/cover no-repeat;
+  aspect-ratio: 2/3;
+  background: #ccc url('/images/jeans.jpg') center/cover no-repeat;
+  margin-top: -24px;
 }
-.jeans-copy { display: flex; flex-direction: column; justify-content: center; padding: 100px 72px; }
-.jeans-copy .section-label { margin-bottom: 32px; }
-.jeans-copy p { font-size: 18px; line-height: 1.55; color: var(--dark); margin: 0 0 18px; }
+.jeans-copy p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 18px; }
 
 
 /* ─────────────────────────────────────────
    ESCENTRIC MOLECULES — title, image left + copy right
 ───────────────────────────────────────── */
-.molecules { background: var(--bg); padding: 0; }
-.molecules-grid {
+.molecules { background: #fff; padding: 80px 0; }
+.molecules .section-label { padding-left: 48px; }
+
+.molecules-image-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  align-items: stretch;
-  min-height: 70vh;
+  grid-template-columns: 0.08fr 0.92fr;
+  margin-bottom: 48px;
 }
+.molecules-image-spacer { }
 .molecules-image {
   width: 100%;
-  min-height: 100%;
+  aspect-ratio: 16/8;
   background: #ccc url('/images/molecules.jpg') center/cover no-repeat;
 }
-.molecules-copy { display: flex; flex-direction: column; justify-content: center; padding: 100px 72px; gap: 0; }
-.molecules-copy .section-label { margin-bottom: 32px; }
-.molecules-copy p { font-size: 18px; line-height: 1.55; color: var(--dark); margin: 0 0 18px; }
+
+.molecules-text-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  padding: 0 48px;
+}
+.molecules-heading {
+  font-weight: 800;
+  font-size: clamp(26px, 3.5vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  margin: 0;
+}
+.molecules-copy { padding-top: 8px; }
+.molecules-copy p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 18px; }
 .molecules-copy p:last-child { margin-bottom: 0; }
 
 
@@ -883,10 +876,9 @@ img { display: block; max-width: 100%; height: auto; }
   .hero-bg { grid-template-columns: 1fr; grid-template-rows: 42vh 50vh; }
   .hero-copy { left: 24px; right: 24px; bottom: 120px; max-width: none; }
   .hero-headline { font-size: clamp(44px, 11vw, 64px); }
-  .hero-sub { max-width: 300px; font-size: 16px; }
   .hero-cta { left: 24px; right: auto; bottom: 36px; align-items: flex-start; }
 
-  .section { padding: 80px 24px; }
+  .section { padding: 56px 24px; }
 
   /* Stack these only on small mobile */
   .friends-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -899,20 +891,22 @@ img { display: block; max-width: 100%; height: auto; }
   .look-grid { grid-template-columns: repeat(2, 1fr); }
   .look-img  { aspect-ratio: 3/4; }
 
-  .store-grid { grid-template-columns: 1fr; min-height: auto; }
-  .store-copy { padding: 48px 24px; }
-  .store-carousel { aspect-ratio: 4/5; height: auto; }
+  .store { padding: 56px 24px; }
+  .store-text-grid { grid-template-columns: 1fr; gap: 0; }
+  .store-text-spacer { display: none; }
 
-  .jeans-grid { grid-template-columns: 1fr; min-height: auto; }
-  .jeans-copy { padding: 48px 24px; }
-  .jeans-image { min-height: 50vh; }
+  .jeans { padding: 56px 24px; }
+  .jeans-grid { grid-template-columns: 1fr; gap: 32px; }
+  .jeans-image { margin-top: 0; aspect-ratio: 4/5; }
 
-  .molecules-grid { grid-template-columns: 1fr; min-height: auto; }
-  .molecules-copy { padding: 48px 24px; }
-  .molecules-image { min-height: 50vh; }
+  .molecules { padding: 56px 0; }
+  .molecules .section-label { padding-left: 24px; }
+  .molecules-image-grid { grid-template-columns: 1fr; }
+  .molecules-image-spacer { display: none; }
+  .molecules-text-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 24px; }
 
-  .find-us-grid { grid-template-columns: 1fr; min-height: auto; }
-  .find-us-info { padding: 48px 24px; }
+  .find-us { padding: 56px 24px; }
+  .find-us-grid { grid-template-columns: 1fr; gap: 32px; }
 
   .friends-form { grid-template-columns: 1fr; }
 
@@ -929,9 +923,8 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 @media (max-width: 640px) {
-  .store-visual, .store-copy,
-  .find-us-info, .find-us-map { order: unset; }
   .arrivals-grid { grid-template-columns: 1fr; }
+  .store-images { grid-template-columns: 1fr; }
   .footer-nav { flex-direction: column; gap: 20px; }
   .footer-col { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid rgba(122,125,129,0.10); padding-bottom: 16px; }
   .footer-col:last-child { border-bottom: none; padding-bottom: 0; }
@@ -951,9 +944,6 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .hero-headline {
   animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.25s both;
-}
-.hero-sub {
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both;
 }
 .hero-cta {
   animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s both;
@@ -988,7 +978,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal-children > * { transition: none; opacity: 1; transform: none; }
-  .hero-eyebrow, .hero-headline, .hero-sub, .hero-cta { animation: none; }
+  .hero-eyebrow, .hero-headline, .hero-cta { animation: none; }
 }
 
 /* Image hover — subtle zoom, already on edit grid, extending site-wide */
@@ -1120,7 +1110,6 @@ img { display: block; max-width: 100%; height: auto; }
       <span class="hero-line" style="white-space:nowrap"><span class="one">ONE</span> <span class="rest">HUNDRED</span></span><br>
       <span class="hero-line" style="white-space:nowrap"><span class="rest">HIGH STREET</span></span>
     </h1>
-    <p class="hero-sub" data-cms="hero_subheading">A PLACE TO LOOK AND FEEL GOOD.</p>
   </div>
   <div class="hero-cta">
     <a href="#find-us" class="btn-primary">Find Us</a>
@@ -1130,46 +1119,41 @@ img { display: block; max-width: 100%; height: auto; }
 
 <!-- THE STORE -->
 <section class="store" id="store">
-  <div class="store-grid reveal">
-    <div class="store-visual">
-      <div class="store-carousel">
-        <div class="store-slide s1" data-cms="store_image_1"></div>
-        <div class="store-slide s2" data-cms="store_image_2"></div>
-        <div class="store-slide s3" data-cms="store_image_3"></div>
-        <div class="store-slide s4" data-cms="store_image_4"></div>
-      </div>
+  <div class="reveal">
+    <h2 class="section-label">The Store</h2>
+    <p class="store-statement">A place to look and feel good.</p>
+    <div class="store-images">
+      <div class="store-img s1" data-cms="store_image_1"></div>
+      <div class="store-img s2" data-cms="store_image_2"></div>
     </div>
-    <div class="store-copy">
-      <h2 class="section-label">The Store</h2>
-      <p data-cms="store_copy_1">One Hundred High Street is run by Sue and Debbie, who have been dressing women for years from their two floored shop on Teddington High Street. Every piece in the shop is something they've chosen themselves — brands they've discovered, worn, and kept coming back to season after season.</p>
-      <p data-cms="store_copy_2">They're supported by a brilliant team of women who between them genuinely love what they do — make you look and feel good.</p>
-      <p data-cms="store_copy_3">Whether you're popping in for a quick look or staying a little longer to try things on and talk things through, you'll always find a friendly face. And if you're on the hunt for the perfect pair of jeans, they offer a personalised fitting service in store too.</p>
-      <a href="#jeans" class="section-link">Find out more ↓</a>
+    <div class="store-text-grid">
+      <div class="store-text-spacer"></div>
+      <div class="store-copy">
+        <p data-cms="store_copy_1">One Hundred High Street is run by Sue and Debbie, who have been dressing women for years from their two floored shop on Teddington High Street. Every piece in the shop is something they've chosen themselves — brands they've discovered, worn, and kept coming back to season after season.</p>
+        <p data-cms="store_copy_2">They're supported by a brilliant team of women who between them genuinely love what they do — make you look and feel good.</p>
+        <p data-cms="store_copy_3">Whether you're popping in for a quick look or staying a little longer to try things on and talk things through, you'll always find a friendly face. And if you're on the hunt for the perfect pair of jeans, they offer a personalised fitting service in store too.</p>
+        <a href="#jeans" class="section-link">Find out more ↓</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FIND US -->
 <section class="find-us" id="find-us">
-  <div class="find-us-grid reveal">
-    <div class="find-us-info">
-      <div class="find-us-top">
-        <h2 class="section-label">Find Us</h2>
-        <p class="find-us-intro">You'll find us on Teddington High Street, opposite Marks &amp; Spencer.</p>
-      </div>
-      <div class="find-us-address">
-        <p><strong>100 High Street</strong><br>Teddington<br>Middlesex<br>TW11 8JD</p>
-        <p><strong>Tel:</strong> <a href="tel:02089778807">0208 977 8807</a><br>
-           <strong>Email:</strong> <a href="mailto:info@onehundredhighstreet.com">info@onehundredhighstreet.com</a></p>
-        <p data-cms="opening_hours"><strong>Monday to Saturday:</strong> 10.30am – 5.30pm</p>
+  <div class="reveal">
+    <h2 class="section-label">Find Us</h2>
+    <div class="find-us-grid">
+      <div class="find-us-info">
+        <p class="find-us-heading">100 High Street, Teddington.</p>
+        <p data-cms="opening_hours">Monday to Saturday: 10.30am – 5.30pm</p>
         <p>If you're nearby, pop in.</p>
       </div>
-    </div>
-    <div class="find-us-map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.6597945844387!2d-0.32741809999999993!3d51.427675799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760b81cb8eb913%3A0x8759806ef84da3f5!2s135%20High%20St%2C%20Teddington%20TW11%208HH%2C%20Royaume-Uni!5e0!3m2!1sfr!2sfr!4v1773500861753!5m2!1sfr!2sfr"
-              width="100%" height="100%" style="border:0; display:block; min-height:460px;"
-              allowfullscreen loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="find-us-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.6597945844387!2d-0.32741809999999993!3d51.427675799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760b81cb8eb913%3A0x8759806ef84da3f5!2s135%20High%20St%2C%20Teddington%20TW11%208HH%2C%20Royaume-Uni!5e0!3m2!1sfr!2sfr!4v1773500861753!5m2!1sfr!2sfr"
+                width="100%" height="100%" style="border:0; display:block; min-height:400px;"
+                allowfullscreen loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -1226,24 +1210,32 @@ img { display: block; max-width: 100%; height: auto; }
 
 <!-- THE JEANS -->
 <section class="jeans" id="jeans">
-  <div class="jeans-grid reveal">
-    <div class="jeans-image" data-cms="jeans_image"></div>
-    <div class="jeans-copy">
-      <h2 class="section-label">The Jeans</h2>
-      <p data-cms="jeans_copy_1">Jeans are kind of our thing.</p>
-      <p data-cms="jeans_copy_2">Finding the right denim that works for you can be a real struggle. Over the years we've helped countless customers find the shape that truly works for them, carrying denim from NYDJ, Red Button, Free People, Ichi, Oui and Bellerose — with fits from cropped and straight to barrel and boyfriend. Pop in and we'll help you find yours.</p>
+  <div class="reveal">
+    <h2 class="section-label">The Jeans</h2>
+    <div class="jeans-grid">
+      <div class="jeans-copy">
+        <p class="jeans-heading">Jeans are kind of our thing.</p>
+        <p data-cms="jeans_copy_2">Finding the right denim that works for you can be a real struggle. Over the years we've helped countless customers find the shape that truly works for them, carrying denim from NYDJ, Red Button, Free People, Ichi, Oui and Bellerose — with fits from cropped and straight to barrel and boyfriend. Pop in and we'll help you find yours.</p>
+      </div>
+      <div class="jeans-image" data-cms="jeans_image"></div>
     </div>
   </div>
 </section>
 
 <!-- ESCENTRIC MOLECULES -->
 <section class="molecules" id="molecules">
-  <div class="molecules-grid reveal">
-    <div class="molecules-image" data-cms="molecules_image"></div>
-    <div class="molecules-copy">
-      <h2 class="section-label">Escentric Molecules</h2>
-      <p data-cms="molecules_copy_1">We love Escentric Molecules — and we're the only place in Teddington and Richmond where you can find their scents in person.</p>
-      <p data-cms="molecules_copy_2">It's a cult fragrance brand built around a single aroma-molecule, Iso E Super, that reacts with your skin rather than sitting on top of it. The result is a scent that smells genuinely different on everyone. Available in store.</p>
+  <div class="reveal">
+    <h2 class="section-label">Escentric Molecules</h2>
+    <div class="molecules-image-grid">
+      <div class="molecules-image-spacer"></div>
+      <div class="molecules-image" data-cms="molecules_image"></div>
+    </div>
+    <div class="molecules-text-grid">
+      <p class="molecules-heading">The only stockist in Teddington and Richmond.</p>
+      <div class="molecules-copy">
+        <p data-cms="molecules_copy_1">We love Escentric Molecules — and we're the only place in Teddington and Richmond where you can find their scents in person.</p>
+        <p data-cms="molecules_copy_2">It's a cult fragrance brand built around a single aroma-molecule, Iso E Super, that reacts with your skin rather than sitting on top of it. The result is a scent that smells genuinely different on everyone. Available in store.</p>
+      </div>
     </div>
   </div>
 </section>
