@@ -113,7 +113,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* Logo — left side */
 .nav-brand {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -238,9 +238,8 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .hero-bg-left,
 .hero-bg-right { min-height: 100%; background-size: cover; background-position: center; }
-/* Hero background images set dynamically from site.json */
-.hero-bg-left  { background: #ccc center/cover no-repeat; }
-.hero-bg-right { background: #ccc center/cover no-repeat; }
+.hero-bg-left  { background: linear-gradient(rgba(246,240,235,0.08),rgba(246,240,235,0.08)), url('/images/hero-left.jpg') center/cover no-repeat; }
+.hero-bg-right { background: linear-gradient(rgba(246,240,235,0.05),rgba(246,240,235,0.05)), url('/images/hero-right.jpg') center/cover no-repeat; }
 
 .hero-vignette {
   position: absolute; inset: 0;
@@ -262,14 +261,14 @@ img { display: block; max-width: 100%; height: auto; }
   margin: 0 0 14px;
 }
 .hero-headline {
-  font-weight: 300;
+  font-weight: 800;
   font-size: clamp(56px, 8vw, 112px);
   line-height: 0.88;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   margin: 0 0 24px;
 }
-.hero-headline .one  { color: var(--blue); font-weight: 700; }
+.hero-headline .one  { color: var(--blue); font-weight: 800; }
 .hero-headline .rest { color: #fff; }
 .hero-sub {
   font-size: 13px;
@@ -323,11 +322,11 @@ img { display: block; max-width: 100%; height: auto; }
   margin-bottom: 36px;
 }
 .section-title {
-  font-weight: 300;
+  font-weight: 800;
   font-size: clamp(36px, 5vw, 72px);
   line-height: 0.95;
   letter-spacing: -0.02em;
-  text-transform: none;
+  text-transform: uppercase;
   color: var(--blue);
   margin: 0;
 }
@@ -377,7 +376,10 @@ img { display: block; max-width: 100%; height: auto; }
   background: #ccc center/cover no-repeat;
   min-height: 0; /* allow grid children to shrink */
 }
-/* Store slide images set dynamically from site.json */
+.store-slide.s1 { background-image: url('/images/shop-1.jpg'); }
+.store-slide.s2 { background-image: url('/images/shop-2.jpg'); }
+.store-slide.s3 { background-image: url('/images/shop-3.jpg'); }
+.store-slide.s4 { background-image: url('/images/shop-4.jpg'); }
 
 .store-copy p { font-size: 16px; line-height: 1.35; color: var(--dark); margin: 0 0 14px; }
 .store-copy p:last-of-type { margin-bottom: 20px; }
@@ -454,7 +456,12 @@ img { display: block; max-width: 100%; height: auto; }
   transition: transform 0.5s ease;
 }
 .arrival-item:hover .arrival-img { transform: scale(1.03); }
-/* Season images set dynamically from site.json */
+.arrival-item.a1 .arrival-img { background-image: url('/images/season-1.jpg'); }
+.arrival-item.a2 .arrival-img { background-image: url('/images/season-2.jpg'); }
+.arrival-item.a3 .arrival-img { background-image: url('/images/season-3.jpg'); }
+.arrival-item.a4 .arrival-img { background-image: url('/images/season-4.jpg'); }
+.arrival-item.a5 .arrival-img { background-image: url('/images/season-5.jpg'); }
+.arrival-item.a6 .arrival-img { background-image: url('/images/season-6.jpg'); }
 .arrival-label { padding: 10px 10px 6px; }
 .arrival-name  { font-size: 13px; line-height: 1.3; color: var(--dark); }
 .arrival-brand { font-size: 12px; color: var(--grey); margin-top: 2px; }
@@ -471,7 +478,7 @@ img { display: block; max-width: 100%; height: auto; }
 .lookbook-header .section-title { margin-bottom: 20px; }
 .lookbook-header p { font-size: 16px; line-height: 1.35; color: var(--dark); margin: 0 0 12px; }
 
-.look-grid-wrap { max-width: 1080px; }
+.look-grid-wrap { }
 .look-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -487,7 +494,26 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .look-item:hover .look-img { transform: scale(1.04); }
 
-/* Brand images set dynamically from site.json */
+.look-item:nth-child(1)  .look-img { background-image: url('/images/brand-1.jpg'); }
+.look-item:nth-child(2)  .look-img { background-image: url('/images/brand-2.jpg'); }
+.look-item:nth-child(3)  .look-img { background-image: url('/images/brand-3.jpg'); }
+.look-item:nth-child(4)  .look-img { background-image: url('/images/brand-4.jpg'); }
+.look-item:nth-child(5)  .look-img { background-image: url('/images/brand-5.jpg'); }
+.look-item:nth-child(6)  .look-img { background-image: url('/images/brand-6.jpg'); }
+.look-item:nth-child(7)  .look-img { background-image: url('/images/brand-7.jpg'); }
+.look-item:nth-child(8)  .look-img { background-image: url('/images/brand-8.jpg'); }
+.look-item:nth-child(9)  .look-img { background-image: url('/images/brand-9.jpg'); }
+.look-item:nth-child(10) .look-img { background-image: url('/images/brand-10.jpg'); }
+.look-item:nth-child(11) .look-img { background-image: url('/images/brand-11.jpg'); }
+.look-item:nth-child(12) .look-img { background-image: url('/images/brand-12.jpg'); }
+.look-item:nth-child(13) .look-img { background-image: url('/images/brand-13.jpg'); }
+.look-item:nth-child(14) .look-img { background-image: url('/images/brand-14.jpg'); }
+.look-item:nth-child(15) .look-img { background-image: url('/images/brand-15.jpg'); }
+.look-item:nth-child(16) .look-img { background-image: url('/images/brand-16.jpg'); }
+.look-item:nth-child(17) .look-img { background-image: url('/images/brand-17.jpg'); }
+.look-item:nth-child(18) .look-img { background-image: url('/images/brand-18.jpg'); }
+.look-item:nth-child(19) .look-img { background-image: url('/images/brand-19.jpg'); }
+.look-item:nth-child(20) .look-img { background-image: url('/images/brand-20.jpg'); }
 
 .look-label { padding: 9px 9px 11px; background: #fff; }
 .look-brand-name { font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--dark); }
@@ -507,8 +533,7 @@ img { display: block; max-width: 100%; height: auto; }
   width: 100%;
   aspect-ratio: 2/3;
   max-height: 480px;
-  background: var(--bg) center/cover no-repeat;
-  /* jeans image set dynamically from site.json */
+  background: var(--bg) url('/images/jeans.jpg') center/cover no-repeat;
 }
 .jeans-copy p { font-size: 16px; line-height: 1.35; color: var(--dark); margin: 0 0 14px; }
 .jeans-copy .section-title { margin-bottom: 20px; }
@@ -528,8 +553,7 @@ img { display: block; max-width: 100%; height: auto; }
   width: 100%;
   aspect-ratio: 2/3;
   max-height: 480px;
-  background: #ccc center/cover no-repeat;
-  /* molecules image set dynamically from site.json */
+  background: #ccc url('/images/molecules.jpg') center/cover no-repeat;
 }
 .molecules-copy { display: flex; flex-direction: column; gap: 0; padding-top: 4px; }
 .molecules-copy p { font-size: 16px; line-height: 1.35; color: var(--dark); margin: 0 0 14px; }
@@ -631,7 +655,7 @@ img { display: block; max-width: 100%; height: auto; }
   background: var(--white);
   color: var(--blue);
   border: none;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -673,7 +697,7 @@ img { display: block; max-width: 100%; height: auto; }
   margin-bottom: 32px;
   border-bottom: 1px solid rgba(122,125,129,0.10);
 }
-.footer-brand { font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0; }
+.footer-brand { font-weight: 800; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0; }
 .footer-brand .one  { color: var(--blue); }
 .footer-brand .rest { color: var(--dark); }
 .footer-sub { font-size: 13px; color: var(--grey); }
@@ -748,15 +772,16 @@ img { display: block; max-width: 100%; height: auto; }
   margin: 0 0 8px;
 }
 .friends-popup-title {
-  font-weight: 300;
+  font-weight: 800;
   font-size: 36px;
   line-height: 1.0;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
   color: var(--dark);
   margin: 0 0 20px;
 }
 .friends-popup-title strong {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--blue);
 }
 
@@ -852,7 +877,7 @@ img { display: block; max-width: 100%; height: auto; }
   .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
 
   .look-grid { grid-template-columns: repeat(2, 1fr); }
-  .look-img  { aspect-ratio: 1/1; }
+  .look-img  { aspect-ratio: 3/4; }
 
   .jeans-grid { grid-template-columns: 1fr; }
   .molecules-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -863,6 +888,12 @@ img { display: block; max-width: 100%; height: auto; }
   .footer-identity { flex-direction: column; gap: 4px; }
 
   .friends-popup { bottom: 0; right: 0; left: 0; width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .hero-bg { grid-template-columns: 1fr; grid-template-rows: 1fr; }
+  .hero-bg-left { display: none; }
+  .hero-bg-right { min-height: 100vh; }
 }
 
 @media (max-width: 640px) {
@@ -976,6 +1007,40 @@ img { display: block; max-width: 100%; height: auto; }
 .btn-primary:active,
 .friends-submit:active,
 .friends-popup-submit:active { transform: scale(0.98); }
+
+/* ─────────────────────────────────────────
+   LIGHTBOX
+───────────────────────────────────────── */
+.lightbox {
+  position: fixed; inset: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+.lightbox.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox-img {
+  max-width: 80vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+@media (max-width: 768px) {
+  .lightbox-img {
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}
 </style>
 </head>
 <body>
@@ -1022,8 +1087,8 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="hero-copy">
     <p class="hero-eyebrow">Teddington · Spring 2026</p>
     <h1 class="hero-headline" data-cms="hero_headline">
-      <span class="one">ONE</span> <span class="rest">HUNDRED</span><br>
-      <span class="rest">HIGH STREET</span>
+      <span class="hero-line" style="white-space:nowrap"><span class="one">ONE</span> <span class="rest">HUNDRED</span></span><br>
+      <span class="hero-line" style="white-space:nowrap"><span class="rest">HIGH STREET</span></span>
     </h1>
     <p class="hero-sub" data-cms="hero_subheading">A PLACE TO LOOK AND FEEL GOOD.</p>
   </div>
@@ -1106,7 +1171,28 @@ img { display: block; max-width: 100%; height: auto; }
     <p>Alongside clothing you'll find footwear, jewellery, bags and scarves — the finishing details, and occasionally the thing you simply can't leave without.</p>
   </div>
   <div class="look-grid-wrap">
-    <div class="look-grid" id="edit-brands-grid"></div>
+    <div class="look-grid" id="edit-brands-grid">
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">American Vintage</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Bellerose</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Ichi</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Absolut Cashmere</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">European Culture</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Transit</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Free People</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Ilse Jacobsen</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Maison Anje</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Oui</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">NYDJ</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Red Button</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Sacre Coeur</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Le Bonne Shop</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Vilagallo</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Lofina</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Edison Burman</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Terre Rouge</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Knekki</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Kate Sheridan</div></div></div>
+    </div>
   </div>
 </section>
 
@@ -1118,7 +1204,7 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="jeans-grid reveal">
     <div class="jeans-image" data-cms="jeans_image"></div>
     <div class="jeans-copy">
-      <p style="font-weight:700; font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:var(--dark); margin:0 0 16px;" data-cms="jeans_copy_1">Jeans are kind of our thing.</p>
+      <p style="font-weight:800; font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:var(--dark); margin:0 0 16px;" data-cms="jeans_copy_1">Jeans are kind of our thing.</p>
       <p data-cms="jeans_copy_2">Finding the right denim that works for you can be a real struggle. Over the years we've helped countless customers find the shape that truly works for them, carrying denim from NYDJ, Red Button, Free People, Ichi, Oui and Bellerose — with fits from cropped and straight to barrel and boyfriend. Pop in and we'll help you find yours.</p>
     </div>
   </div>
@@ -1341,75 +1427,6 @@ window.addEventListener('load', () => {
   setTimeout(() => popup.classList.add('visible'), 4000);
 });
 
-// LOAD CONTENT FROM JSON
-fetch('/content/site.json')
-  .then(r => r.json())
-  .then(data => {
-    // Simple text/image fields via data-cms attributes
-    document.querySelectorAll('[data-cms]').forEach(el => {
-      const key = el.dataset.cms;
-      const val = data[key];
-      if (!val) return;
-
-      // Background-image elements (hero bg, store slides, jeans, molecules)
-      if (key.includes('image')) {
-        if (key === 'hero_image_left') {
-          el.style.background = "linear-gradient(rgba(246,240,235,0.08),rgba(246,240,235,0.08)), url('" + val + "') center/cover no-repeat";
-        } else if (key === 'hero_image_right') {
-          el.style.background = "linear-gradient(rgba(246,240,235,0.05),rgba(246,240,235,0.05)), url('" + val + "') center/cover no-repeat";
-        } else {
-          el.style.backgroundImage = "url('" + val + "')";
-        }
-        return;
-      }
-
-      // Text content
-      el.textContent = val;
-    });
-
-    // Hero headline — preserve styled spans
-    const headlineEl = document.querySelector('[data-cms="hero_headline"]');
-    if (headlineEl && data.hero_headline) {
-      const parts = data.hero_headline.split(' ');
-      if (parts.length >= 3) {
-        headlineEl.innerHTML =
-          '<span class="one">' + parts[0] + '</span> <span class="rest">' + parts[1] + '</span><br>' +
-          '<span class="rest">' + parts.slice(2).join(' ') + '</span>';
-      }
-    }
-
-    // In Season grid
-    const seasonGrid = document.getElementById('in-season-grid');
-    if (seasonGrid && data.in_season) {
-      seasonGrid.innerHTML = '';
-      data.in_season.forEach((item, i) => {
-        const div = document.createElement('div');
-        div.className = 'arrival-item';
-        div.innerHTML =
-          '<div class="arrival-img" style="background-image:url(\'' + item.image + '\')"></div>' +
-          '<div class="arrival-label">' +
-            '<div class="arrival-name">' + item.name + '</div>' +
-            '<div class="arrival-brand">' + item.brand + '</div>' +
-          '</div>';
-        seasonGrid.appendChild(div);
-      });
-    }
-
-    // Edit Brands grid — fully dynamic
-    const brandsGrid = document.getElementById('edit-brands-grid');
-    if (brandsGrid && data.edit_brands) {
-      brandsGrid.innerHTML = '';
-      data.edit_brands.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'look-item';
-        div.innerHTML =
-          '<div class="look-img" style="background-image:url(\'' + item.image + '\')"></div>' +
-          '<div class="look-label"><div class="look-brand-name">' + item.brand_name + '</div></div>';
-        brandsGrid.appendChild(div);
-      });
-    }
-  });
-
 // NETLIFY IDENTITY REDIRECT
 if (window.netlifyIdentity) {
   window.netlifyIdentity.on("init", user => {
@@ -1420,6 +1437,44 @@ if (window.netlifyIdentity) {
     }
   });
 }
+</script>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+<script>
+(function() {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  function openLightbox(imgUrl) {
+    lightboxImg.src = imgUrl;
+    lightbox.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('visible');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Delegate clicks on brand cards
+  document.getElementById('edit-brands-grid').addEventListener('click', function(e) {
+    const item = e.target.closest('.look-item');
+    if (!item) return;
+    const imgDiv = item.querySelector('.look-img');
+    if (!imgDiv) return;
+    const bg = imgDiv.style.backgroundImage || getComputedStyle(imgDiv).backgroundImage;
+    const match = bg.match(/url\(['"]?(.+?)['"]?\)/);
+    if (match) openLightbox(match[1]);
+  });
+})();
 </script>
 </body>
 </html>
