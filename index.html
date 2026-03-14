@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>One Hundred High Street — Teddington</title>
+<meta name="description" content="One Hundred High Street is an independent women's boutique on Teddington High Street, south west London. Since 2015, Sue and Debbie have built a carefully chosen edit of womenswear from over 20 independent labels — clothes worth keeping, from brands you won't find on every high street." />
+
+<!-- Canonical -->
+<link rel="canonical" href="https://www.onehundredhighstreet.com/" />
+
+<!-- Open Graph — controls how the site looks when shared on WhatsApp, iMessage, social media -->
+<meta property="og:type"        content="website" />
+<meta property="og:url"         content="https://www.onehundredhighstreet.com/" />
+<meta property="og:title"       content="One Hundred High Street — Teddington" />
+<meta property="og:description" content="Independent womenswear boutique on Teddington High Street. A carefully chosen edit from over 20 labels. Come in and find something worth wearing." />
+<meta property="og:image"       content="https://www.onehundredhighstreet.com/images/hero-left.jpg" />
+<meta name="twitter:card"       content="summary_large_image" />
+
+<!-- Favicon — browser tab icon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23235BA8'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='11' fill='white' letter-spacing='-0.5'>OHHS</text></svg>" />
+
+<!--
+  FONT NOTE FOR CLAUDE CODE:
+  Aileron is not on Google Fonts. Self-host it:
+  1. Download from https://tipotype.com/aileron/ (free, SIL Open Font License)
+  2. Put .woff2 + .woff files in a /fonts/ folder next to index.html
+  3. Replace the @font-face block below with:
+
+  @font-face {
+    font-family: 'Aileron';
+    src: url('/fonts/Aileron-Regular.woff2') format('woff2'),
+         url('/fonts/Aileron-Regular.woff') format('woff');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Aileron';
+    src: url('/fonts/Aileron-Bold.woff2') format('woff2'),
+         url('/fonts/Aileron-Bold.woff') format('woff');
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Aileron';
+    src: url('/fonts/Aileron-Heavy.woff2') format('woff2'),
+         url('/fonts/Aileron-Heavy.woff') format('woff');
+    font-weight: 800; font-style: normal; font-display: swap;
+  }
+  Until font files are present, fallback renders cleanly as Helvetica Neue.
+-->
+
+<style>
+@font-face {
+  font-family: 'Aileron';
+  src: local('Aileron'), local('Aileron-Regular');
+  font-display: swap;
+}
+
+:root {
+  --grey:  #7A7D81;
+  --blue:  #235BA8;
+  --dark:  #1C1A18;
+  --white: #F6F0EB;
+  --bg:    #F6F0EB;
+  --f:     'Aileron', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --max:   1440px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--dark);
+  font-family: var(--f);
+  font-size: 16px;
+  line-height: 1.30;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Force font on every text element — no cascade gaps */
+h1,h2,h3,h4,h5,h6,p,a,span,li,label,
+input,select,button,textarea,div {
+  font-family: var(--f);
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.page-wrap { max-width: var(--max); margin: 0 auto; background: #fff; }
+
+
+/* ─────────────────────────────────────────
+   NAV
+───────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
+  padding: 20px 40px;
+  background: rgba(246,240,235,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+/* Scrolled state — compact, hamburger replaces links */
+.nav.scrolled {
+  padding: 14px 40px;
+}
+.nav.scrolled .nav-links {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.nav.scrolled .nav-hamburger {
+  display: flex;
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Logo — left side */
+.nav-brand {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.3s;
+}
+.nav-brand .one  { color: var(--blue); }
+.nav-brand .rest { color: var(--grey); }
+
+/* Links — right side, hidden once scrolled */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.nav-link {
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--grey);
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--blue); }
+
+/* Scrolled state — background appears, links hide, compact padding */
+.nav.scrolled {
+  background: rgba(246,240,235,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 40px;
+}
+.nav.scrolled .nav-links {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.nav.scrolled .nav-hamburger {
+  display: flex;
+}
+
+.nav-hamburger {
+  display: none; /* hidden on desktop at top */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22px; height: 15px;
+  cursor: pointer;
+  background: none; border: none; padding: 0;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 1.5px;
+  background: var(--dark);
+  width: 100%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(6.75px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-6.75px) rotate(-45deg); }
+
+
+/* ─────────────────────────────────────────
+   MOBILE MENU
+───────────────────────────────────────── */
+.nav-mobile {
+  position: fixed; inset: 0;
+  background: var(--white);
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 88px 32px 48px;
+  transform: translateY(-100%);
+  transition: transform 0.38s cubic-bezier(0.76,0,0.24,1);
+}
+.nav-mobile.open { transform: translateY(0); }
+
+.nav-mobile-item {
+  display: block;
+  font-weight: 800;
+  font-size: clamp(36px, 9vw, 52px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--blue);
+  padding: 8px 0;
+  transition: opacity 0.2s;
+}
+.nav-mobile-item:hover { opacity: 0.7; }
+
+.nav-mobile-sub {
+  margin-top: 32px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.nav-mobile-sub a {
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 57px;
+  background: var(--bg);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.hero-bg-left,
+.hero-bg-right { min-height: 100%; background-size: cover; background-position: center; }
+.hero-bg-left  { background: linear-gradient(rgba(246,240,235,0.08),rgba(246,240,235,0.08)), url('hero-left.jpg')  center/cover no-repeat; }
+.hero-bg-right { background: linear-gradient(rgba(246,240,235,0.05),rgba(246,240,235,0.05)), url('hero-right.jpg') center/cover no-repeat; }
+
+.hero-vignette {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(28,26,24,0.38) 0%, rgba(28,26,24,0.02) 55%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: absolute;
+  left: 48px; bottom: 56px;
+  z-index: 10;
+  max-width: 720px;
+}
+.hero-eyebrow {
+  font-size: 15px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(246,240,235,0.90);
+  margin: 0 0 14px;
+}
+.hero-headline {
+  font-weight: 300;
+  font-size: clamp(56px, 8vw, 112px);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+.hero-headline .one  { color: var(--blue); font-weight: 700; }
+.hero-headline .rest { color: #fff; }
+.hero-sub {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(246,240,235,0.70);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.hero-cta {
+  position: absolute;
+  right: 48px; bottom: 56px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--blue); color: #fff;
+  padding: 13px 26px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #1a4a8a; }
+.btn-ghost {
+  display: inline-block;
+  color: var(--white);
+  border-bottom: 1px solid rgba(246,240,235,0.50);
+  padding-bottom: 2px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+/* ─────────────────────────────────────────
+   SHARED SECTION STYLES
+───────────────────────────────────────── */
+.section { padding: 88px 48px; }
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+.section-title {
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--blue);
+  margin: 0;
+}
+
+/* Friends title stays white — on blue background */
+.friends-title-row .section-title { color: #fff; margin: 0; }
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--grey);
+  max-width: 600px;
+  margin: 10px 0 0;
+}
+.section-link {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--grey);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  color: var(--grey);
+  transition: color 0.2s, border-color 0.2s;
+}
+.section-link:hover { color: var(--blue); border-color: var(--blue); }
+
+
+/* ─────────────────────────────────────────
+   THE STORE — image left, copy right
+───────────────────────────────────────── */
+.store { background: #fff; }
+.store-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: start;
+}
+.store-visual { order: 1; }
+.store-copy   { order: 2; }
+
+.store-carousel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3px;
+  aspect-ratio: 4/5;
+}
+.store-slide {
+  background: #ccc center/cover no-repeat;
+  min-height: 0; /* allow grid children to shrink */
+}
+.store-slide.s1 { background-image: url('store-1.jpg'); }
+.store-slide.s2 { background-image: url('store-2.jpg'); }
+.store-slide.s3 { background-image: url('store-3.jpg'); }
+.store-slide.s4 { background-image: url('store-4.jpg'); }
+
+.store-copy p { font-size: 16px; line-height: 1.35; color: var(--dark); margin: 0 0 14px; }
+.store-copy p:last-of-type { margin-bottom: 20px; }
+
+
+/* ─────────────────────────────────────────
+   FIND US — text left, map right
+───────────────────────────────────────── */
+.find-us { background: var(--bg); }
+.find-us-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: stretch;
+}
+.find-us-info {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+}
+.find-us-map { order: 2; }
+
+/* Title and intro sit at top */
+.find-us-top { margin-bottom: 0; }
+.find-us-top .section-title { margin-bottom: 16px; }
+.find-us-intro {
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--dark);
+  margin: 0 0 0;
+}
+
+/* Address block pushed down with auto margin */
+.find-us-address {
+  margin-top: auto;
+  padding-top: 32px;
+}
+.find-us-address p {
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--dark);
+  margin: 0 0 12px;
+}
+.find-us-address p:last-child { margin-bottom: 0; }
+.find-us-address strong { font-weight: 700; }
+.find-us-address a { color: var(--blue); }
+
+.find-us-map { min-height: 460px; background: #ddd; overflow: hidden; }
+.find-us-map iframe { width: 100%; height: 100%; min-height: 460px; border: none; display: block; }
+.find-us-map-placeholder {
+  width: 100%; height: 100%; min-height: 460px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; background: #e4dfd8;
+}
+.find-us-map-placeholder span { font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--grey); }
+.find-us-map-placeholder a { font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--blue); border-bottom: 1px solid var(--blue); padding-bottom: 2px; }
+
+
+/* ─────────────────────────────────────────
+   IN SEASON
+───────────────────────────────────────── */
+.arrivals { background: #fff; }
+.arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.arrival-item { background: var(--bg); overflow: hidden; }
+.arrival-img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: #ccc center/cover no-repeat;
+  transition: transform 0.5s ease;
+}
+.arrival-item:hover .arrival-img { transform: scale(1.03); }
+.arrival-item.a1 .arrival-img { background-image: url('season-1.jpg'); }
+.arrival-item.a2 .arrival-img { background-image: url('season-2.jpg'); }
+.arrival-item.a3 .arrival-img { background-image: url('season-3.jpg'); }
+.arrival-item.a4 .arrival-img { background-image: url('season-4.jpg'); }
+.arrival-item.a5 .arrival-img { background-image: url('season-5.jpg'); }
+.arrival-item.a6 .arrival-img { background-image: url('season-6.jpg'); }
+.arrival-label { padding: 10px 10px 6px; }
+.arrival-name  { font-size: 13px; line-height: 1.3; color: var(--dark); }
+.arrival-brand { font-size: 12px; color: var(--grey); margin-top: 2px; }
+
+
+/* ─────────────────────────────────────────
+   THE EDIT
+   Desktop: 5-col contained grid (Zara-feel — not full-bleed)
+   Mobile:  2-col square (Instagram-feel)
+───────────────────────────────────────── */
+.lookbook { background: var(--bg); }
+
+.lookbook-header { max-width: 720px; margin-bottom: 48px; }
+.lookbook-header .section-title { margin-bottom: 20px; }
+.lookbook-header p { font-size: 16px; line-height: 1.35; color: var(--dark); margin: 0 0 12px; }
+
+.look-grid-wrap { max-width: 1080px; }
+.look-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+}
+.look-item { overflow: hidden; background: #ccc; }
+.look-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: #ccc center/cover no-repeat;
+  display: block;
+  transition: transform 0.45s ease;
+}
+.look-item:hover .look-img { transform: scale(1.04); }
+
+.look-item:nth-child(1)  .look-img { background-image: url('brand-1.jpg'); }
+.look-item:nth-child(2)  .look-img { background-image: url('brand-2.jpg'); }
+.look-item:nth-child(3)  .look-img { background-image: url('brand-3.jpg'); }
+.look-item:nth-child(4)  .look-img { background-image: url('brand-4.jpg'); }
+.look-item:nth-child(5)  .look-img { background-image: url('brand-5.jpg'); }
+.look-item:nth-child(6)  .look-img { background-image: url('brand-6.jpg'); }
+.look-item:nth-child(7)  .look-img { background-image: url('brand-7.jpg'); }
+.look-item:nth-child(8)  .look-img { background-image: url('brand-8.jpg'); }
+.look-item:nth-child(9)  .look-img { background-image: url('brand-9.jpg'); }
+.look-item:nth-child(10) .look-img { background-image: url('brand-10.jpg'); }
+.look-item:nth-child(11) .look-img { background-image: url('brand-11.jpg'); }
+.look-item:nth-child(12) .look-img { background-image: url('brand-12.jpg'); }
+.look-item:nth-child(13) .look-img { background-image: url('brand-13.jpg'); }
+.look-item:nth-child(14) .look-img { background-image: url('brand-14.jpg'); }
+.look-item:nth-child(15) .look-img { background-image: url('brand-15.jpg'); }
+.look-item:nth-child(16) .look-img { background-image: url('brand-16.jpg'); }
+.look-item:nth-child(17) .look-img { background-image: url('brand-17.jpg'); }
+.look-item:nth-child(18) .look-img { background-image: url('brand-18.jpg'); }
+.look-item:nth-child(19) .look-img { background-image: url('brand-19.jpg'); }
+.look-item:nth-child(20) .look-img { background-image: url('brand-20.jpg'); }
+
+.look-label { padding: 9px 9px 11px; background: #fff; }
+.look-brand-name { font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--dark); }
+
+
+/* ─────────────────────────────────────────
+   THE JEANS — title full-width, image left / copy right
+───────────────────────────────────────── */
+.jeans { background: #fff; }
+.jeans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.jeans-image {
+  width: 100%;
+  aspect-ratio: 2/3;
+  max-height: 480px;
+  background: var(--bg) center/cover no-repeat;
+  background-image: url('jeans.jpg');
+}
+.jeans-copy p { font-size: 16px; line-height: 1.35; color: var(--dark); margin: 0 0 14px; }
+.jeans-copy .section-title { margin-bottom: 20px; }
+
+
+/* ─────────────────────────────────────────
+   ESCENTRIC MOLECULES — title, image left + copy right
+───────────────────────────────────────── */
+.molecules { background: var(--bg); }
+.molecules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.molecules-image {
+  width: 100%;
+  aspect-ratio: 2/3;
+  max-height: 480px;
+  background: #ccc center/cover no-repeat;
+  background-image: url('molecules.jpg');
+}
+.molecules-copy { display: flex; flex-direction: column; gap: 0; padding-top: 4px; }
+.molecules-copy p { font-size: 16px; line-height: 1.35; color: var(--dark); margin: 0 0 14px; }
+.molecules-copy p:last-child { margin-bottom: 0; }
+
+
+
+/* ─────────────────────────────────────────
+   FRIENDS — compact modern layout
+───────────────────────────────────────── */
+/* ─────────────────────────────────────────
+   FRIENDS — identical to popup, blue bg
+───────────────────────────────────────── */
+.friends {
+  background: var(--blue);
+  padding: 80px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friends-inner {
+  width: 100%;
+  max-width: 480px;
+}
+
+.friends-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(246,240,235,0.15);
+}
+.friends-title-row .section-title { color: #fff; margin: 0; }
+.friends-tagline {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(246,240,235,0.50);
+  white-space: nowrap;
+}
+
+.friends-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246,240,235,0.50);
+  margin: 0 0 12px;
+}
+
+.friends-perks-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(246,240,235,0.12);
+  border-bottom: 1px solid rgba(246,240,235,0.12);
+  padding: 16px 0;
+  margin-bottom: 24px;
+}
+.friends-perk-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.friends-perk-pill::before {
+  content: '';
+  display: block;
+  width: 4px; height: 4px;
+  background: rgba(246,240,235,0.35);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.friends-perk-text { display: flex; gap: 6px; align-items: baseline; }
+.friends-perk-label { font-size: 13px; font-weight: 600; color: #fff; line-height: 1.2; }
+.friends-perk-sub   { font-size: 11px; color: rgba(246,240,235,0.48); }
+
+.friends-form { display: flex; flex-direction: column; gap: 8px; }
+.friends-form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+.friends-input {
+  height: 46px;
+  width: 100%;
+  border: 1px solid rgba(246,240,235,0.18);
+  background: rgba(246,240,235,0.06);
+  color: var(--white);
+  padding: 0 14px;
+  outline: none;
+  font-size: 14px;
+  -webkit-appearance: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.friends-input:focus { border-color: rgba(246,240,235,0.55); background: rgba(246,240,235,0.10); }
+.friends-input::placeholder { color: rgba(246,240,235,0.28); }
+.friends-input option { background: var(--blue); color: var(--white); }
+
+.friends-submit {
+  height: 46px;
+  background: var(--white);
+  color: var(--blue);
+  border: none;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+.friends-submit:hover { background: var(--bg); }
+
+.friends-note {
+  margin-top: 12px;
+  font-size: 11px;
+  color: rgba(246,240,235,0.28);
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+
+
+
+/* ─────────────────────────────────────────
+   SEO / FOOTER
+───────────────────────────────────────── */
+.seo-block { padding: 0; height: 0; overflow: hidden; }
+
+.footer {
+  background: #fff;
+  padding: 52px 48px 32px;
+  border-top: 1px solid rgba(122,125,129,0.10);
+}
+
+/* Top row: brand left, tagline right */
+.footer-identity {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 36px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid rgba(122,125,129,0.10);
+}
+.footer-brand { font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0; }
+.footer-brand .one  { color: var(--blue); }
+.footer-brand .rest { color: var(--dark); }
+.footer-sub { font-size: 13px; color: var(--grey); }
+
+/* Nav strip: three link groups running horizontally */
+.footer-nav {
+  display: flex;
+  gap: 0;
+  margin-bottom: 32px;
+}
+.footer-col {
+  flex: 1;
+  padding-right: 32px;
+  border-right: 1px solid rgba(122,125,129,0.10);
+  margin-right: 32px;
+}
+.footer-col:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.footer-col-title { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); margin: 0 0 12px; }
+.footer-links { display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--dark); }
+.footer-links a:hover { color: var(--blue); }
+
+.footer-bottom {
+  padding-top: 16px;
+  border-top: 1px solid rgba(122,125,129,0.10);
+  font-size: 12px;
+  color: var(--grey);
+  letter-spacing: 0.04em;
+}
+
+
+/* ─────────────────────────────────────────
+   FRIENDS POP-OUT BANNER
+───────────────────────────────────────── */
+/* ─────────────────────────────────────────
+   FRIENDS POPUP — clean warm white
+───────────────────────────────────────── */
+.friends-popup {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  z-index: 80;
+  width: 400px;
+  background: var(--white);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.16), 0 8px 24px rgba(0,0,0,0.08);
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
+  overflow: hidden;
+}
+.friends-popup.visible { transform: translateY(0); opacity: 1; pointer-events: all; }
+
+.friends-popup-close {
+  position: absolute; top: 16px; right: 18px;
+  background: none; border: none; cursor: pointer;
+  color: var(--grey); font-size: 13px; padding: 4px;
+  line-height: 1; z-index: 2;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.friends-popup-close:hover { color: var(--dark); }
+
+/* Single body — all pale background */
+.friends-popup-body {
+  padding: 40px 36px 32px;
+}
+
+.friends-popup-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin: 0 0 8px;
+}
+.friends-popup-title {
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  margin: 0 0 20px;
+}
+.friends-popup-title strong {
+  font-weight: 700;
+  color: var(--blue);
+}
+
+/* Perks */
+.friends-popup-perks {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(28,26,24,0.08);
+  border-bottom: 1px solid rgba(28,26,24,0.08);
+}
+.friends-popup-perks li {
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.friends-popup-perks li::before {
+  content: '';
+  display: block;
+  width: 3px; height: 3px;
+  background: var(--blue);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.friends-popup-form { display: flex; flex-direction: column; gap: 8px; }
+.friends-popup-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+.friends-popup-input {
+  height: 46px;
+  width: 100%;
+  border: 1px solid rgba(28,26,24,0.14);
+  background: #fff;
+  color: var(--dark);
+  padding: 0 14px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+.friends-popup-input:focus { border-color: var(--blue); }
+.friends-popup-input::placeholder { color: rgba(28,26,24,0.28); }
+.friends-popup-input option { background: #fff; color: var(--dark); }
+
+.friends-popup-submit {
+  height: 46px;
+  background: var(--dark); color: var(--white); border: none;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: background 0.2s; width: 100%;
+  margin-top: 2px;
+}
+.friends-popup-submit:hover { background: var(--blue); }
+
+.friends-popup-note {
+  margin-top: 12px;
+  font-size: 11px;
+  color: rgba(28,26,24,0.28);
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — tablet/mobile ≤980px
+───────────────────────────────────────── */
+@media (max-width: 980px) {
+  .nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+
+  .hero { padding-top: 53px; }
+  .hero-bg { grid-template-columns: 1fr; grid-template-rows: 42vh 50vh; }
+  .hero-copy { left: 24px; right: 24px; bottom: 120px; max-width: none; }
+  .hero-headline { font-size: clamp(44px, 11vw, 64px); }
+  .hero-sub { max-width: 300px; font-size: 16px; }
+  .hero-cta { left: 24px; right: auto; bottom: 36px; align-items: flex-start; }
+
+  .section { padding: 64px 24px; }
+
+  /* Stack these only on small mobile */
+  .friends-grid { grid-template-columns: 1fr; gap: 32px; }
+  .friends { padding: 48px 24px; }
+  .friends-title-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .friends-form-row-2 { grid-template-columns: 1fr; }
+
+  .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .look-grid { grid-template-columns: repeat(2, 1fr); }
+  .look-img  { aspect-ratio: 1/1; }
+
+  .jeans-grid { grid-template-columns: 1fr; }
+  .molecules-grid { grid-template-columns: 1fr; gap: 24px; }
+
+  .friends-form { grid-template-columns: 1fr; }
+
+  .footer { padding: 48px 24px 28px; }
+  .footer-identity { flex-direction: column; gap: 4px; }
+
+  .friends-popup { bottom: 0; right: 0; left: 0; width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .store-grid,
+  .find-us-grid { grid-template-columns: 1fr; gap: 28px; }
+  .store-visual, .store-copy,
+  .find-us-info, .find-us-map { order: unset; }
+  .arrivals-grid { grid-template-columns: 1fr; }
+  .footer-nav { flex-direction: column; gap: 20px; }
+  .footer-col { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid rgba(122,125,129,0.10); padding-bottom: 16px; }
+  .footer-col:last-child { border-bottom: none; padding-bottom: 0; }
+}
+
+/* ─────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────── */
+
+/* Hero load — elements fade up on page load */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow {
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+.hero-headline {
+  animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.25s both;
+}
+.hero-sub {
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+}
+.hero-cta {
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s both;
+}
+
+/* Scroll reveal — sections fade up as they enter viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+              transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children within a reveal parent */
+.reveal-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+              transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-children.in-view > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+.reveal-children.in-view > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.12s; }
+.reveal-children.in-view > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.19s; }
+.reveal-children.in-view > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.26s; }
+.reveal-children.in-view > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.33s; }
+.reveal-children.in-view > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.40s; }
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-children > * { transition: none; opacity: 1; transform: none; }
+  .hero-eyebrow, .hero-headline, .hero-sub, .hero-cta { animation: none; }
+}
+
+/* Image hover — subtle zoom, already on edit grid, extending site-wide */
+.arrival-item { overflow: hidden; }
+.arrival-img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+.arrival-item:hover .arrival-img { transform: scale(1.04); }
+
+/* Section link underline animation */
+.section-link {
+  position: relative;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.section-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 1px;
+  background: var(--grey);
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: background 0.2s;
+}
+.section-link:hover::after { background: var(--blue); }
+
+/* Nav link hover — slide underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 1px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* Button press feedback */
+.btn-primary, .friends-submit, .friends-popup-submit {
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-primary:active,
+.friends-submit:active,
+.friends-popup-submit:active { transform: scale(0.98); }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <span class="one">ONE</span> <span class="rest">HUNDRED HIGH STREET</span>
+    </a>
+    <div class="nav-links">
+      <a href="#find-us"  class="nav-link">Find Us</a>
+      <a href="#arrivals" class="nav-link">In Season</a>
+      <a href="#lookbook" class="nav-link">The Edit</a>
+      <a href="#friends"  class="nav-link">Friends</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="mobileMenu" role="dialog" aria-modal="true">
+  <a href="#find-us"  class="nav-mobile-item" onclick="closeMenu()">Find Us</a>
+  <a href="#arrivals" class="nav-mobile-item" onclick="closeMenu()">In Season</a>
+  <a href="#lookbook" class="nav-mobile-item" onclick="closeMenu()">The Edit</a>
+  <a href="#friends"  class="nav-mobile-item" onclick="closeMenu()">Friends</a>
+  <div class="nav-mobile-sub">
+    <a href="https://www.instagram.com/onehundredteddington/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:info@onehundredhighstreet.com">info@onehundredhighstreet.com</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-left"></div>
+    <div class="hero-bg-right"></div>
+  </div>
+  <div class="hero-vignette"></div>
+  <div class="hero-copy">
+    <p class="hero-eyebrow">Teddington · Spring 2026</p>
+    <h1 class="hero-headline">
+      <span class="one">ONE</span> <span class="rest">HUNDRED</span><br>
+      <span class="rest">HIGH STREET</span>
+    </h1>
+    <p class="hero-sub">A PLACE TO LOOK AND FEEL GOOD.</p>
+  </div>
+  <div class="hero-cta">
+    <a href="#find-us" class="btn-primary">Find Us</a>
+    <a href="#friends" class="btn-ghost">Join Friends</a>
+  </div>
+</section>
+
+<!-- THE STORE -->
+<section class="section store" id="store">
+  <div class="section-header reveal">
+    <h2 class="section-title">The Store</h2>
+  </div>
+  <div class="store-grid reveal">
+    <div class="store-visual">
+      <div class="store-carousel">
+        <div class="store-slide s1"></div>
+        <div class="store-slide s2"></div>
+        <div class="store-slide s3"></div>
+        <div class="store-slide s4"></div>
+      </div>
+    </div>
+    <div class="store-copy">
+      <p>One Hundred High Street is run by Sue and Debbie, who have been dressing women for years from their two floored shop on Teddington High Street. Every piece in the shop is something they've chosen themselves — brands they've discovered, worn, and kept coming back to season after season.</p>
+      <p>They're supported by a brilliant team of women who between them genuinely love what they do — make you look and feel good.</p>
+      <p>Whether you're popping in for a quick look or staying a little longer to try things on and talk things through, you'll always find a friendly face. And if you're on the hunt for the perfect pair of jeans, they offer a personalised fitting service in store too.</p>
+      <a href="#jeans" class="section-link">Find out more ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- FIND US -->
+<section class="section find-us" id="find-us">
+  <div class="find-us-grid reveal">
+    <div class="find-us-info">
+      <div class="find-us-top">
+        <h2 class="section-title">Find Us</h2>
+        <p class="find-us-intro">You'll find us on Teddington High Street, opposite Marks &amp; Spencer.</p>
+      </div>
+      <div class="find-us-address">
+        <p><strong>100 High Street</strong><br>Teddington<br>Middlesex<br>TW11 8JD</p>
+        <p><strong>Tel:</strong> <a href="tel:02089778807">0208 977 8807</a><br>
+           <strong>Email:</strong> <a href="mailto:info@onehundredhighstreet.com">info@onehundredhighstreet.com</a></p>
+        <p><strong>Monday to Saturday:</strong> 10.30am – 5.30pm</p>
+        <p>If you're nearby, pop in.</p>
+      </div>
+    </div>
+    <div class="find-us-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.6597945844387!2d-0.32741809999999993!3d51.427675799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760b81cb8eb913%3A0x8759806ef84da3f5!2s135%20High%20St%2C%20Teddington%20TW11%208HH%2C%20Royaume-Uni!5e0!3m2!1sfr!2sfr!4v1773500861753!5m2!1sfr!2sfr"
+              width="100%" height="100%" style="border:0; display:block; min-height:460px;"
+              allowfullscreen loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+<!-- IN SEASON -->
+<section class="section arrivals" id="arrivals">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">In Season</h2>
+      <p class="section-intro">A snapshot of the things we're particularly fond of this season — while stocks last.</p>
+    </div>
+  </div>
+  <div class="arrivals-grid reveal-children">
+    <div class="arrival-item a1"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Trousers</div><div class="arrival-brand">American Vintage</div></div></div>
+    <div class="arrival-item a2"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Sleeveless</div><div class="arrival-brand">American Vintage</div></div></div>
+    <div class="arrival-item a3"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Sweater</div><div class="arrival-brand">Bellerose</div></div></div>
+    <div class="arrival-item a4"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Shirt</div><div class="arrival-brand">Bellerose</div></div></div>
+    <div class="arrival-item a5"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Bomber Jacket</div><div class="arrival-brand">Brand</div></div></div>
+    <div class="arrival-item a6"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Ensemble</div><div class="arrival-brand">Brand</div></div></div>
+  </div>
+</section>
+
+<!-- THE EDIT -->
+<section class="section lookbook" id="lookbook">
+  <div class="lookbook-header reveal">
+    <h2 class="section-title">The Edit</h2>
+    <p>Our brand selection has been curated over more than a decade of dedicated buying — labels that have proven themselves season after season. Some pieces are quiet everyday staples. Others have a little more personality. We love both. The joy is in finding what works for you.</p>
+    <p>Alongside clothing you'll find footwear, jewellery, bags and scarves — the finishing details, and occasionally the thing you simply can't leave without.</p>
+  </div>
+  <div class="look-grid-wrap">
+    <div class="look-grid">
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">American Vintage</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Bellerose</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Ichi</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Absolut Cashmere</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">European Culture</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Transit</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Free People</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Ilse Jacobsen</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Maison Anje</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Oui</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">NYDJ</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Red Button</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Sacre Coeur</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Le Bonne Shop</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Vilagallo</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Lofina</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Edison Burman</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Terre Rouge</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Knekki</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Kate Sheridan</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE JEANS -->
+<section class="section jeans" id="jeans">
+  <div class="section-header">
+    <h2 class="section-title">The Jeans</h2>
+  </div>
+  <div class="jeans-grid reveal">
+    <div class="jeans-image"></div>
+    <div class="jeans-copy">
+      <p style="font-weight:700; font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:var(--dark); margin:0 0 16px;">Jeans are kind of our thing.</p>
+      <p>Finding the right denim that works for you can be a real struggle. Over the years we've helped countless customers find the shape that truly works for them, carrying denim from NYDJ, Red Button, Free People, Ichi, Oui and Bellerose — with fits from cropped and straight to barrel and boyfriend. Pop in and we'll help you find yours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ESCENTRIC MOLECULES -->
+<section class="section molecules" id="molecules">
+  <div class="section-header">
+    <h2 class="section-title">Escentric Molecules</h2>
+  </div>
+  <div class="molecules-grid reveal">
+    <div class="molecules-image"></div>
+    <div class="molecules-copy">
+      <p>We love Escentric Molecules — and we're the only place in Teddington and Richmond where you can find their scents in person.</p>
+      <p>It's a cult fragrance brand built around a single aroma-molecule, Iso E Super, that reacts with your skin rather than sitting on top of it. The result is a scent that smells genuinely different on everyone. Available in store.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FRIENDS -->
+<section class="friends" id="friends">
+  <div class="friends-inner">
+
+    <div class="friends-title-row">
+      <h2 class="section-title">Friends</h2>
+      <span class="friends-tagline">FREE TO JOIN. In store or below.</span>
+    </div>
+
+    <p class="friends-eyebrow">One Hundred High Street</p>
+
+    <ul class="friends-perks-row">
+      <li class="friends-perk-pill">
+        <div class="friends-perk-text">
+          <span class="friends-perk-label">5% back</span>
+          <span class="friends-perk-sub">on every purchase</span>
+        </div>
+      </li>
+      <li class="friends-perk-pill">
+        <div class="friends-perk-text">
+          <span class="friends-perk-label">£15 birthday voucher</span>
+          <span class="friends-perk-sub">every year</span>
+        </div>
+      </li>
+      <li class="friends-perk-pill">
+        <div class="friends-perk-text">
+          <span class="friends-perk-label">First to know</span>
+          <span class="friends-perk-sub">new arrivals &amp; events</span>
+        </div>
+      </li>
+    </ul>
+
+    <form class="friends-form"
+          action="https://onehundredhighstreet.us15.list-manage.com/subscribe/post?u=652e99eb369dba635448f3961&amp;id=d7150f8098&amp;f_id=00b6afe0f0"
+          method="post" id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      <div class="friends-form-row-2">
+        <input class="friends-input" name="FNAME" type="text" placeholder="First name">
+        <input class="friends-input" name="LNAME" type="text" placeholder="Last name">
+      </div>
+      <select class="friends-input" name="MMERGE3[month]" aria-label="Birthday month">
+        <option value="">Birthday month</option>
+        <option value="01">January</option><option value="02">February</option>
+        <option value="03">March</option><option value="04">April</option>
+        <option value="05">May</option><option value="06">June</option>
+        <option value="07">July</option><option value="08">August</option>
+        <option value="09">September</option><option value="10">October</option>
+        <option value="11">November</option><option value="12">December</option>
+      </select>
+      <input type="hidden" name="MMERGE3[day]" value="01">
+      <input type="hidden" name="MMERGE3[year]" value="1900">
+      <input class="friends-input" name="EMAIL" type="email" placeholder="Email address" required>
+      <div style="position:absolute;left:-5000px" aria-hidden="true">
+        <input type="text" name="b_652e99eb369dba635448f3961_d7150f8098" tabindex="-1" value="">
+      </div>
+      <button type="submit" class="friends-submit" name="subscribe">Join Friends</button>
+    </form>
+    <p class="friends-note">No spam. Unsubscribe any time.</p>
+
+  </div>
+</section>
+
+<!-- SEO -->
+<section class="seo-block" aria-hidden="true">
+  <p>One Hundred High Street is an independent women's boutique on Teddington High Street, south west London. Since 2015, Sue and Debbie have built a carefully chosen edit of womenswear from over 20 independent labels — clothes worth keeping, from brands you won't find on every high street. We are also the only stockist of Escentric Molecules fragrance in the Teddington and Richmond area. Come in and find something worth wearing.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-identity">
+    <p class="footer-brand"><span class="one">ONE</span> <span class="rest">HUNDRED HIGH STREET</span></p>
+    <span class="footer-sub">Independent womenswear. Teddington, since 2015.</span>
+  </div>
+  <div class="footer-nav">
+    <div class="footer-col">
+      <p class="footer-col-title">Visit</p>
+      <div class="footer-links">
+        <a href="#find-us">Find Us</a>
+        <a href="#find-us">Opening Hours</a>
+        <a href="https://maps.google.com/?q=100+High+Street,Teddington,TW11+8JD" target="_blank" rel="noopener">Get Directions ↗</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Explore</p>
+      <div class="footer-links">
+        <a href="#lookbook">The Edit</a>
+        <a href="#friends">Friends</a>
+        <a href="#jeans">The Jeans</a>
+        <a href="#molecules">Escentric Molecules</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Connect</p>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/onehundredteddington/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="#friends">Newsletter</a>
+        <a href="mailto:info@onehundredhighstreet.com">info@onehundredhighstreet.com</a>
+        <a href="tel:02089778807">0208 977 8807</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 One Hundred High Street · 100 High Street · Teddington · TW11 8JD
+  </div>
+</footer>
+
+</div><!-- /page-wrap -->
+
+<!-- FRIENDS POPUP -->
+<div class="friends-popup" id="friendsPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+  <button class="friends-popup-close" id="popupClose" aria-label="Close">✕</button>
+
+  <div class="friends-popup-body">
+    <p class="friends-popup-eyebrow">One Hundred High Street</p>
+    <h3 class="friends-popup-title" id="popupTitle">Join <strong>Friends</strong></h3>
+
+    <ul class="friends-popup-perks">
+      <li>5% back on every purchase</li>
+      <li>£15 birthday voucher, every year</li>
+      <li>First to know about new arrivals</li>
+    </ul>
+
+    <form class="friends-popup-form"
+          action="https://onehundredhighstreet.us15.list-manage.com/subscribe/post?u=652e99eb369dba635448f3961&amp;id=d7150f8098&amp;f_id=00b6afe0f0"
+          method="post" target="_blank" novalidate>
+      <div class="friends-popup-row">
+        <input class="friends-popup-input" type="text" name="FNAME" placeholder="First name">
+        <input class="friends-popup-input" type="text" name="LNAME" placeholder="Last name">
+      </div>
+      <select class="friends-popup-input" name="MMERGE3[month]" aria-label="Birthday month">
+        <option value="">Birthday month</option>
+        <option value="01">January</option><option value="02">February</option>
+        <option value="03">March</option><option value="04">April</option>
+        <option value="05">May</option><option value="06">June</option>
+        <option value="07">July</option><option value="08">August</option>
+        <option value="09">September</option><option value="10">October</option>
+        <option value="11">November</option><option value="12">December</option>
+      </select>
+      <input type="hidden" name="MMERGE3[day]" value="01">
+      <input type="hidden" name="MMERGE3[year]" value="1900">
+      <input class="friends-popup-input" type="email" name="EMAIL" placeholder="Email address" required>
+      <div style="position:absolute;left:-5000px" aria-hidden="true">
+        <input type="text" name="b_652e99eb369dba635448f3961_d7150f8098" tabindex="-1" value="">
+      </div>
+      <button type="submit" class="friends-popup-submit">Join Friends</button>
+    </form>
+    <p class="friends-popup-note">No spam. Unsubscribe any time.</p>
+  </div>
+</div>
+<script>
+// MOBILE NAV
+const hamburger  = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const nav        = document.getElementById('nav');
+
+function openMenu() {
+  mobileMenu.classList.add('open');
+  hamburger.classList.add('is-open');
+  hamburger.setAttribute('aria-expanded','true');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  hamburger.classList.remove('is-open');
+  hamburger.setAttribute('aria-expanded','false');
+  document.body.style.overflow = '';
+}
+hamburger.addEventListener('click', () =>
+  mobileMenu.classList.contains('open') ? closeMenu() : openMenu()
+);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeMenu();
+});
+
+// NAV SCROLL — compact on scroll
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+// SCROLL REVEAL — fade sections up as they enter viewport
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-children').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// FRIENDS POPUP — shows after 4s, closes on X
+const popup = document.getElementById('friendsPopup');
+document.getElementById('popupClose').addEventListener('click', () => {
+  popup.classList.remove('visible');
+});
+window.addEventListener('load', () => {
+  setTimeout(() => popup.classList.add('visible'), 4000);
+});
+</script>
+</body>
+</html>
