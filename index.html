@@ -269,7 +269,7 @@ img { display: block; max-width: 100%; height: auto; }
   margin: 0;
 }
 .hero-headline .one  { color: var(--blue); font-weight: 800; }
-.hero-headline .rest { color: #fff; }
+.hero-headline .rest { color: var(--grey); }
 
 .hero-cta {
   position: absolute;
@@ -326,13 +326,14 @@ img { display: block; max-width: 100%; height: auto; }
 /* Editorial section label — flush left, no decoration */
 .section-label {
   font-weight: 800;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: var(--dark);
   margin: 0 0 32px;
 }
+.section-label .first { color: var(--blue); }
+.section-label .rest  { color: var(--grey); }
 
 /* Friends title stays white — on blue background */
 .friends-title-row .section-title { color: #fff; margin: 0; }
@@ -1083,7 +1084,7 @@ img { display: block; max-width: 100%; height: auto; }
 <!-- THE STORE -->
 <section class="store" id="store">
   <div>
-    <h2 class="section-label">The Store</h2>
+    <h2 class="section-label"><span class="first">The</span> <span class="rest">Store</span></h2>
     <p class="store-statement">A place to look and feel good.</p>
     <div class="store-images">
       <div class="store-img s1" data-cms="store_image_1"></div>
@@ -1106,7 +1107,7 @@ img { display: block; max-width: 100%; height: auto; }
 <!-- FIND US -->
 <section class="find-us" id="find-us">
   <div>
-    <h2 class="section-label">Find Us</h2>
+    <h2 class="section-label"><span class="first">Find</span> <span class="rest">Us</span></h2>
     <div class="find-us-grid">
       <div class="find-us-info">
         <p class="find-us-heading">100 High Street, Teddington.</p>
@@ -1124,7 +1125,7 @@ img { display: block; max-width: 100%; height: auto; }
 </section>
 <!-- IN SEASON -->
 <section class="section arrivals" id="arrivals">
-  <h2 class="section-label">In Season</h2>
+  <h2 class="section-label"><span class="first">In</span> <span class="rest">Season</span></h2>
   <p class="section-intro">A snapshot of the things we're particularly fond of this season — while stocks last.</p>
   <div class="arrivals-grid" id="in-season-grid">
     <div class="arrival-item a1"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Trousers</div><div class="arrival-brand">American Vintage</div></div></div>
@@ -1139,7 +1140,7 @@ img { display: block; max-width: 100%; height: auto; }
 <!-- THE EDIT -->
 <section class="section lookbook" id="lookbook">
   <div class="lookbook-header">
-    <h2 class="section-label">The Edit</h2>
+    <h2 class="section-label"><span class="first">The</span> <span class="rest">Edit</span></h2>
     <p>Our brand selection has been curated over more than a decade of dedicated buying — labels that have proven themselves season after season. Some pieces are quiet everyday staples. Others have a little more personality. We love both. The joy is in finding what works for you.</p>
     <p>Alongside clothing you'll find footwear, jewellery, bags and scarves — the finishing details, and occasionally the thing you simply can't leave without.</p>
   </div>
@@ -1172,7 +1173,7 @@ img { display: block; max-width: 100%; height: auto; }
 <!-- THE JEANS -->
 <section class="jeans" id="jeans">
   <div>
-    <h2 class="section-label">The Jeans</h2>
+    <h2 class="section-label"><span class="first">The</span> <span class="rest">Jeans</span></h2>
     <div class="jeans-grid">
       <div class="jeans-copy">
         <p class="jeans-heading">Jeans are kind of our thing.</p>
@@ -1186,7 +1187,7 @@ img { display: block; max-width: 100%; height: auto; }
 <!-- ESCENTRIC MOLECULES -->
 <section class="molecules" id="molecules">
   <div>
-    <h2 class="section-label">Escentric Molecules</h2>
+    <h2 class="section-label"><span class="first">Escentric</span> <span class="rest">Molecules</span></h2>
     <div class="molecules-image-grid">
       <div class="molecules-image-spacer"></div>
       <div class="molecules-image" data-cms="molecules_image"></div>
