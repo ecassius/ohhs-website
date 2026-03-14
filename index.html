@@ -113,7 +113,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* Logo — left side */
 .nav-brand {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -322,7 +322,7 @@ img { display: block; max-width: 100%; height: auto; }
   margin-bottom: 36px;
 }
 .section-title {
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(36px, 5vw, 72px);
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -655,7 +655,7 @@ img { display: block; max-width: 100%; height: auto; }
   background: var(--white);
   color: var(--blue);
   border: none;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -697,7 +697,7 @@ img { display: block; max-width: 100%; height: auto; }
   margin-bottom: 32px;
   border-bottom: 1px solid rgba(122,125,129,0.10);
 }
-.footer-brand { font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0; }
+.footer-brand { font-weight: 800; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0; }
 .footer-brand .one  { color: var(--blue); }
 .footer-brand .rest { color: var(--dark); }
 .footer-sub { font-size: 13px; color: var(--grey); }
@@ -772,15 +772,16 @@ img { display: block; max-width: 100%; height: auto; }
   margin: 0 0 8px;
 }
 .friends-popup-title {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 36px;
   line-height: 1.0;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
   color: var(--dark);
   margin: 0 0 20px;
 }
 .friends-popup-title strong {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--blue);
 }
 
@@ -1086,8 +1087,8 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="hero-copy">
     <p class="hero-eyebrow">Teddington · Spring 2026</p>
     <h1 class="hero-headline" data-cms="hero_headline">
-      <span class="one">ONE</span> <span class="rest">HUNDRED</span><br>
-      <span class="rest">HIGH STREET</span>
+      <span class="hero-line" style="white-space:nowrap"><span class="one">ONE</span> <span class="rest">HUNDRED</span></span><br>
+      <span class="hero-line" style="white-space:nowrap"><span class="rest">HIGH STREET</span></span>
     </h1>
     <p class="hero-sub" data-cms="hero_subheading">A PLACE TO LOOK AND FEEL GOOD.</p>
   </div>
@@ -1203,7 +1204,7 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="jeans-grid reveal">
     <div class="jeans-image" data-cms="jeans_image"></div>
     <div class="jeans-copy">
-      <p style="font-weight:700; font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:var(--dark); margin:0 0 16px;" data-cms="jeans_copy_1">Jeans are kind of our thing.</p>
+      <p style="font-weight:800; font-size:15px; letter-spacing:0.06em; text-transform:uppercase; color:var(--dark); margin:0 0 16px;" data-cms="jeans_copy_1">Jeans are kind of our thing.</p>
       <p data-cms="jeans_copy_2">Finding the right denim that works for you can be a real struggle. Over the years we've helped countless customers find the shape that truly works for them, carrying denim from NYDJ, Red Button, Free People, Ichi, Oui and Bellerose — with fits from cropped and straight to barrel and boyfriend. Pop in and we'll help you find yours.</p>
     </div>
   </div>
@@ -1425,74 +1426,6 @@ document.getElementById('popupClose').addEventListener('click', () => {
 window.addEventListener('load', () => {
   setTimeout(() => popup.classList.add('visible'), 4000);
 });
-
-// CMS CONTENT OVERRIDE — page renders immediately from hardcoded HTML;
-// JSON fetch overrides only if CMS has made changes.
-fetch('/content/site.json')
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
-    // Override simple text/image fields via data-cms attributes
-    document.querySelectorAll('[data-cms]').forEach(function(el) {
-      var key = el.dataset.cms;
-      var val = data[key];
-      if (!val) return;
-
-      if (key.includes('image')) {
-        if (key === 'hero_image_left') {
-          el.style.background = "linear-gradient(rgba(246,240,235,0.08),rgba(246,240,235,0.08)), url('" + val + "') center/cover no-repeat";
-        } else if (key === 'hero_image_right') {
-          el.style.background = "linear-gradient(rgba(246,240,235,0.05),rgba(246,240,235,0.05)), url('" + val + "') center/cover no-repeat";
-        } else {
-          el.style.backgroundImage = "url('" + val + "')";
-        }
-        return;
-      }
-      el.textContent = val;
-    });
-
-    // Hero headline — preserve styled spans
-    var headlineEl = document.querySelector('[data-cms="hero_headline"]');
-    if (headlineEl && data.hero_headline) {
-      var parts = data.hero_headline.split(' ');
-      if (parts.length >= 3) {
-        headlineEl.innerHTML =
-          '<span class="one">' + parts[0] + '</span> <span class="rest">' + parts[1] + '</span><br>' +
-          '<span class="rest">' + parts.slice(2).join(' ') + '</span>';
-      }
-    }
-
-    // In Season grid — rebuild from JSON
-    var seasonGrid = document.getElementById('in-season-grid');
-    if (seasonGrid && data.in_season) {
-      seasonGrid.innerHTML = '';
-      data.in_season.forEach(function(item) {
-        var div = document.createElement('div');
-        div.className = 'arrival-item';
-        div.innerHTML =
-          '<div class="arrival-img" style="background-image:url(\'' + item.image + '\')"></div>' +
-          '<div class="arrival-label">' +
-            '<div class="arrival-name">' + item.name + '</div>' +
-            '<div class="arrival-brand">' + item.brand + '</div>' +
-          '</div>';
-        seasonGrid.appendChild(div);
-      });
-    }
-
-    // Edit Brands grid — rebuild dynamically so CMS additions/removals take effect
-    var brandsGrid = document.getElementById('edit-brands-grid');
-    if (brandsGrid && data.edit_brands) {
-      brandsGrid.innerHTML = '';
-      data.edit_brands.forEach(function(item) {
-        var div = document.createElement('div');
-        div.className = 'look-item';
-        div.innerHTML =
-          '<div class="look-img" style="background-image:url(\'' + item.image + '\')"></div>' +
-          '<div class="look-label"><div class="look-brand-name">' + item.brand_name + '</div></div>';
-        brandsGrid.appendChild(div);
-      });
-    }
-  })
-  .catch(function() { /* JSON unavailable — hardcoded HTML is already visible */ });
 
 // NETLIFY IDENTITY REDIRECT
 if (window.netlifyIdentity) {
