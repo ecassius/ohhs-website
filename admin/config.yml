@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: images
+public_folder: /images
+
+collections:
+  - name: content
+    label: Content
+    files:
+      - name: site
+        label: Site Content
+        file: content/site.json
+        fields:
+          - { label: "Hero Headline", name: hero_headline, widget: string }
+          - { label: "Hero Subheading", name: hero_subheading, widget: string }
+          - { label: "Hero Image Left", name: hero_image_left, widget: image }
+          - { label: "Hero Image Right", name: hero_image_right, widget: image }
+          - { label: "Store Copy 1", name: store_copy_1, widget: text }
+          - { label: "Store Copy 2", name: store_copy_2, widget: text }
+          - { label: "Store Copy 3", name: store_copy_3, widget: text }
+          - { label: "Store Image 1", name: store_image_1, widget: image }
+          - { label: "Store Image 2", name: store_image_2, widget: image }
+          - { label: "Store Image 3", name: store_image_3, widget: image }
+          - { label: "Store Image 4", name: store_image_4, widget: image }
+          - { label: "Opening Hours", name: opening_hours, widget: string }
+          - label: "In Season"
+            name: in_season
+            widget: list
+            fields:
+              - { label: "Image", name: image, widget: image }
+              - { label: "Name", name: name, widget: string }
+              - { label: "Brand", name: brand, widget: string }
+          - label: "Edit Brands"
+            name: edit_brands
+            widget: list
+            fields:
+              - { label: "Image", name: image, widget: image }
+              - { label: "Brand Name", name: brand_name, widget: string }
+          - { label: "Jeans Image", name: jeans_image, widget: image }
+          - { label: "Jeans Copy 1", name: jeans_copy_1, widget: text }
+          - { label: "Jeans Copy 2", name: jeans_copy_2, widget: text }
+          - { label: "Molecules Image", name: molecules_image, widget: image }
+          - { label: "Molecules Copy 1", name: molecules_copy_1, widget: text }
+          - { label: "Molecules Copy 2", name: molecules_copy_2, widget: text }
+          - { label: "Friends Copy 1", name: friends_copy_1, widget: text }
+          - { label: "Friends Copy 2", name: friends_copy_2, widget: text }
