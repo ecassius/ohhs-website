@@ -315,20 +315,20 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .section-title {
   font-weight: 800;
-  font-size: clamp(36px, 5vw, 72px);
+  font-size: clamp(44px, 6vw, 86px);
   line-height: 0.95;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: var(--dark);
+  color: var(--blue);
   margin: 0;
 }
 
 /* Editorial section label — flush left, no decoration */
 .section-label {
   font-weight: 800;
-  font-size: clamp(36px, 5vw, 72px);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--dark);
   margin: 0 0 32px;
@@ -338,8 +338,9 @@ img { display: block; max-width: 100%; height: auto; }
 .friends-title-row .section-title { color: #fff; margin: 0; }
 .section-intro {
   font-size: 15px;
+  font-weight: 700;
   line-height: 1.65;
-  color: var(--grey);
+  color: var(--dark);
   max-width: 700px;
   margin: 0 0 36px;
 }
@@ -468,6 +469,7 @@ img { display: block; max-width: 100%; height: auto; }
 .lookbook-header { max-width: 900px; margin-bottom: 56px; }
 .lookbook-header .section-label { margin-bottom: 28px; }
 .lookbook-header p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 16px; }
+.lookbook-header p:first-of-type { font-weight: 700; }
 
 .look-grid-wrap { }
 .look-grid {
