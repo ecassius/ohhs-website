@@ -879,14 +879,12 @@ img { display: block; max-width: 100%; height: auto; }
 
   .hero { padding-top: 53px; }
   .hero-bg { grid-template-columns: 1fr; grid-template-rows: 42vh 50vh; }
-  .hero-copy { left: 24px; right: 24px; bottom: 120px; max-width: none; }
-  .hero-headline { font-size: clamp(44px, 11vw, 64px); }
-  .hero-cta { left: 24px; right: auto; bottom: 36px; align-items: flex-start; }
+  .hero-copy { left: 24px; right: 24px; bottom: 100px; max-width: none; }
+  .hero-headline { font-size: clamp(40px, 10vw, 64px); }
+  .hero-cta { left: 24px; right: auto; bottom: 32px; align-items: flex-start; flex-direction: row; gap: 16px; }
 
   .section { padding: 56px 24px; }
 
-  /* Stack these only on small mobile */
-  .friends-grid { grid-template-columns: 1fr; gap: 32px; }
   .friends { padding: 48px 24px; }
   .friends-title-row { flex-direction: column; align-items: flex-start; gap: 6px; }
   .friends-form-row-2 { grid-template-columns: 1fr; }
@@ -895,46 +893,68 @@ img { display: block; max-width: 100%; height: auto; }
 
   .look-grid { grid-template-columns: repeat(2, 1fr); }
   .look-img  { aspect-ratio: 3/4; }
+  .lookbook-header { max-width: none; }
 
   .store { padding: 56px 24px; }
   .store-images { grid-template-columns: repeat(2, 1fr); }
   .store-text-grid { grid-template-columns: 1fr; gap: 0; }
   .store-text-spacer { display: none; }
-  .store-statement { font-size: clamp(24px, 6vw, 36px); }
+  .store-statement { font-size: clamp(22px, 5.5vw, 32px); }
 
   .jeans { padding: 56px 24px; }
-  .jeans-grid { grid-template-columns: 1fr; gap: 32px; }
+  .jeans-grid { grid-template-columns: 1fr; gap: 40px; }
   .jeans-image { margin-top: 0; aspect-ratio: 4/5; }
+  .jeans-heading { font-size: clamp(26px, 7vw, 40px); }
 
-  .molecules { padding: 56px 0; }
-  .molecules .section-label { padding-left: 24px; }
+  .molecules { padding: 56px 24px; }
+  .molecules .section-label { padding-left: 0; }
   .molecules-image-grid { grid-template-columns: 1fr; }
   .molecules-image-spacer { display: none; }
   .molecules-image { aspect-ratio: 16/10; }
-  .molecules-text-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 24px; }
+  .molecules-text-grid { grid-template-columns: 1fr; gap: 24px; padding: 0; }
+  .molecules-heading { font-size: clamp(22px, 5.5vw, 34px); }
 
   .find-us { padding: 56px 24px; }
   .find-us-grid { grid-template-columns: 1fr; gap: 32px; }
-  .find-us-map { min-height: 300px; }
-  .find-us-map iframe { min-height: 300px; }
-
-  .friends-form { grid-template-columns: 1fr; }
+  .find-us-heading { font-size: clamp(22px, 5.5vw, 34px); }
+  .find-us-map { min-height: 280px; }
+  .find-us-map iframe { min-height: 280px !important; }
 
   .footer { padding: 48px 24px 28px; }
   .footer-identity { flex-direction: column; gap: 4px; }
 
   .friends-popup { bottom: 0; right: 0; left: 0; width: 100%; }
+  .friends-popup-body { padding: 32px 24px 24px; }
+  .friends-popup-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
   .hero-bg { grid-template-columns: 1fr; grid-template-rows: 1fr; }
   .hero-bg-left { display: none; }
   .hero-bg-right { min-height: 100vh; }
+  .hero-headline { font-size: clamp(36px, 10vw, 56px); }
+  .hero-cta { flex-direction: column; gap: 12px; }
 }
 
 @media (max-width: 640px) {
+  .section { padding: 48px 20px; }
+  .store { padding: 48px 20px; }
+  .jeans { padding: 48px 20px; }
+  .molecules { padding: 48px 20px; }
+  .find-us { padding: 48px 20px; }
+  .friends { padding: 40px 20px; }
+
   .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
   .store-images { grid-template-columns: 1fr 1fr; }
+  .store-statement { font-size: clamp(20px, 5vw, 28px); margin-bottom: 32px; }
+  .store-copy p { font-size: 14px; }
+
+  .jeans-copy p { font-size: 14px; }
+  .molecules-copy p { font-size: 14px; }
+  .find-us-info p { font-size: 14px; }
+  .lookbook-header p { font-size: 14px; }
+
+  .footer { padding: 40px 20px 24px; }
   .footer-nav { flex-direction: column; gap: 20px; }
   .footer-col { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid rgba(122,125,129,0.10); padding-bottom: 16px; }
   .footer-col:last-child { border-bottom: none; padding-bottom: 0; }
@@ -1116,7 +1136,7 @@ img { display: block; max-width: 100%; height: auto; }
       </div>
       <div class="find-us-map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.6597945844387!2d-0.32741809999999993!3d51.427675799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760b81cb8eb913%3A0x8759806ef84da3f5!2s135%20High%20St%2C%20Teddington%20TW11%208HH%2C%20Royaume-Uni!5e0!3m2!1sfr!2sfr!4v1773500861753!5m2!1sfr!2sfr"
-                width="100%" height="100%" style="border:0; display:block; min-height:400px;"
+                width="100%" height="100%" style="border:0; display:block;"
                 allowfullscreen loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
