@@ -303,14 +303,17 @@ img { display: block; max-width: 100%; height: auto; }
 /* Editorial section label — flush left, no decoration */
 .section-label {
   font-weight: 800;
-  font-size: 16px;
+  font-size: 11px;
   line-height: 1;
-  letter-spacing: 0.20em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+  color: #1C1A18;
   margin: 0 0 32px;
+  border: none;
+  text-decoration: none;
 }
-.section-label .first { color: var(--blue); }
-.section-label .rest  { color: var(--grey); }
+.section-label .first { color: #1C1A18; }
+.section-label .rest  { color: #1C1A18; }
 
 /* Friends title stays white — on blue background */
 .friends-title-row .section-title { color: #fff; margin: 0; font-size: clamp(28px, 5vw, 42px); }
@@ -417,11 +420,13 @@ img { display: block; max-width: 100%; height: auto; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3px;
+  max-width: var(--max);
+  margin: 0 auto;
 }
 .arrival-item { background: var(--bg); overflow: hidden; }
 .arrival-img {
   width: 100%;
-  aspect-ratio: 4/5;
+  aspect-ratio: 3/4;
   background: #ccc center/cover no-repeat;
   transition: transform 0.5s ease;
 }
@@ -484,6 +489,16 @@ img { display: block; max-width: 100%; height: auto; }
 .look-item:nth-child(18) .look-img { background-image: url('/images/brand-18.jpg'); }
 .look-item:nth-child(19) .look-img { background-image: url('/images/brand-19.jpg'); }
 .look-item:nth-child(20) .look-img { background-image: url('/images/brand-20.jpg'); }
+.look-item:nth-child(21) .look-img { background-image: url('/images/brand-21.jpg'); }
+.look-item:nth-child(22) .look-img { background-image: url('/images/brand-22.jpg'); }
+.look-item:nth-child(23) .look-img { background-image: url('/images/brand-23.jpg'); }
+.look-item:nth-child(24) .look-img { background-image: url('/images/brand-24.jpg'); }
+.look-item:nth-child(25) .look-img { background-image: url('/images/brand-25.jpg'); }
+.look-item:nth-child(26) .look-img { background-image: url('/images/brand-26.jpg'); }
+.look-item:nth-child(27) .look-img { background-image: url('/images/brand-27.jpg'); }
+.look-item:nth-child(28) .look-img { background-image: url('/images/brand-28.jpg'); }
+.look-item:nth-child(29) .look-img { background-image: url('/images/brand-29.jpg'); }
+.look-item:nth-child(30) .look-img { background-image: url('/images/brand-30.jpg'); }
 
 .look-label { padding: 9px 9px 11px; background: #fff; }
 .look-brand-name { font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--dark); }
@@ -495,7 +510,7 @@ img { display: block; max-width: 100%; height: auto; }
 .jeans { background: #fff; padding: 80px 48px; }
 .jeans-grid {
   display: grid;
-  grid-template-columns: 0.55fr 0.45fr;
+  grid-template-columns: 0.6fr 0.4fr;
   gap: 64px;
   align-items: start;
 }
@@ -562,7 +577,7 @@ img { display: block; max-width: 100%; height: auto; }
    FRIENDS — identical to popup, blue bg
 ───────────────────────────────────────── */
 .friends {
-  background: var(--blue);
+  background: #1C1A18;
   padding: 80px 48px;
   display: flex;
   flex-direction: column;
@@ -642,12 +657,12 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .friends-input:focus { border-color: rgba(246,240,235,0.55); background: rgba(246,240,235,0.10); }
 .friends-input::placeholder { color: rgba(246,240,235,0.28); }
-.friends-input option { background: var(--blue); color: var(--white); }
+.friends-input option { background: #1C1A18; color: var(--white); }
 
 .friends-submit {
   height: 46px;
-  background: var(--white);
-  color: var(--blue);
+  background: #fff;
+  color: #1C1A18;
   border: none;
   font-weight: 800;
   font-size: 11px;
@@ -857,7 +872,6 @@ img { display: block; max-width: 100%; height: auto; }
   .hero-bg { grid-template-columns: 1fr; grid-template-rows: 42vh 50vh; }
   .hero-copy { left: 24px; right: 24px; bottom: 100px; max-width: none; }
   .hero-headline { font-size: clamp(40px, 10vw, 64px); }
-  .hero-eyebrow { font-size: 13px; }
   .hero-copy { bottom: 140px; }
   .hero-cta { left: 24px; right: auto; bottom: 32px; align-items: flex-start; flex-direction: row; gap: 16px; }
 
@@ -912,8 +926,8 @@ img { display: block; max-width: 100%; height: auto; }
 
 @media (max-width: 768px) {
   .hero-bg { grid-template-columns: 1fr; grid-template-rows: 1fr; }
-  .hero-bg-right { display: none; }
-  .hero-bg-left { min-height: 100vh; }
+  .hero-bg-left { display: none; }
+  .hero-bg-right { min-height: 100vh; }
   .hero-headline { font-size: clamp(36px, 10vw, 56px); }
   .hero-copy { bottom: 160px; }
   .hero-cta { flex-direction: column; gap: 12px; }
@@ -931,9 +945,8 @@ img { display: block; max-width: 100%; height: auto; }
   .friends { padding: 40px 20px; }
 
   .hero-headline .hero-line { white-space: normal !important; }
-  .hero-eyebrow { font-size: 11px; margin-bottom: 10px; }
 
-  .section-label { font-size: 14px; letter-spacing: 0.16em; }
+  .section-label { font-size: 11px; letter-spacing: 0.22em; }
   .section-intro { font-size: 14px; }
 
   .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1093,7 +1106,6 @@ img { display: block; max-width: 100%; height: auto; }
   </div>
   <div class="hero-vignette"></div>
   <div class="hero-copy">
-    <p class="hero-eyebrow">Teddington · Spring 2026</p>
     <h1 class="hero-headline" data-cms="hero_headline">
       <span class="hero-line" style="white-space:nowrap"><span class="one">ONE</span> <span class="rest">HUNDRED</span></span><br>
       <span class="hero-line" style="white-space:nowrap"><span class="rest">HIGH STREET</span></span>
@@ -1139,10 +1151,7 @@ img { display: block; max-width: 100%; height: auto; }
         <p>If you're nearby, pop in.</p>
       </div>
       <div class="find-us-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.6597945844387!2d-0.32741809999999993!3d51.427675799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760b81cb8eb913%3A0x8759806ef84da3f5!2s135%20High%20St%2C%20Teddington%20TW11%208HH%2C%20Royaume-Uni!5e0!3m2!1sfr!2sfr!4v1773500861753!5m2!1sfr!2sfr"
-                width="100%" height="100%" style="border:0; display:block;"
-                allowfullscreen loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.685242471569!2d-0.33151232334771374!3d51.42720837179515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760b7f7b5050e3%3A0x77a23e14b27efc9f!2sOne%20Hundred%20High%20Street!5e0!3m2!1sen!2sgb!4v1773845415826!5m2!1sen!2sgb" width="100%" height="100%" style="border:0; display:block; min-height:460px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
@@ -1152,12 +1161,12 @@ img { display: block; max-width: 100%; height: auto; }
   <h2 class="section-label"><span class="first">In</span> <span class="rest">Season</span></h2>
   <p class="section-intro">A snapshot of the things we're particularly fond of this season — while stocks last.</p>
   <div class="arrivals-grid" id="in-season-grid">
-    <div class="arrival-item a1"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Trousers</div><div class="arrival-brand">American Vintage</div></div></div>
-    <div class="arrival-item a2"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Sleeveless</div><div class="arrival-brand">American Vintage</div></div></div>
-    <div class="arrival-item a3"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Sweater</div><div class="arrival-brand">Bellerose</div></div></div>
-    <div class="arrival-item a4"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Shirt</div><div class="arrival-brand">Bellerose</div></div></div>
-    <div class="arrival-item a5"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Bomber Jacket</div><div class="arrival-brand">Brand</div></div></div>
-    <div class="arrival-item a6"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Ensemble</div><div class="arrival-brand">Brand</div></div></div>
+    <div class="arrival-item a1"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Wax Cotton Coat</div><div class="arrival-brand">Kate Sheridan</div></div></div>
+    <div class="arrival-item a2"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Shirt</div><div class="arrival-brand">Sacrécoeur</div></div></div>
+    <div class="arrival-item a3"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Neon Pink Gilet</div><div class="arrival-brand">American Vintage</div></div></div>
+    <div class="arrival-item a4"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Striped Cotton Shirt</div><div class="arrival-brand">Bellerose</div></div></div>
+    <div class="arrival-item a5"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Green Dress</div><div class="arrival-brand">Petite Mendigote</div></div></div>
+    <div class="arrival-item a6"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">White Cotton Shirt</div><div class="arrival-brand">Lilith</div></div></div>
   </div>
 </section>
 
@@ -1183,13 +1192,23 @@ img { display: block; max-width: 100%; height: auto; }
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">NYDJ</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Red Button</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Sacre Coeur</div></div></div>
-      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Le Bonne Shop</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Le Bon Shoppe</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Vilagallo</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Lofina</div></div></div>
-      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Edison Burman</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Beck Sondergaard</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Terre Rouge</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Knekki</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Kate Sheridan</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Handprint Dream Apparel</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Hod</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Indi & Cold</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Jumper 1234</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">LF Markey</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Lilith</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Lollys Laundry</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Orfeo</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Petite Mendigote</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">One Tee</div></div></div>
     </div>
   </div>
 </section>
@@ -1201,7 +1220,7 @@ img { display: block; max-width: 100%; height: auto; }
     <div class="jeans-grid">
       <div class="jeans-copy">
         <p class="jeans-heading">Jeans are kind of our thing.</p>
-        <p data-cms="jeans_copy_2">Finding the right denim that works for you can be a real struggle. Over the years we've helped countless customers find the shape that truly works for them, carrying denim from NYDJ, Red Button, Free People, Ichi, Oui and Bellerose — with fits from cropped and straight to barrel and boyfriend. Pop in and we'll help you find yours.</p>
+        <p data-cms="jeans_copy_2">Finding the right denim that works for you can be a real struggle. Over the years we've helped countless customers find the shape that truly works for them, carrying denim from Free People, NYDJ, Red Button, Ichi and Ilse Jacobsen — with fits from cropped and straight to barrel and boyfriend. Pop in and we'll help you find yours.</p>
       </div>
       <div class="jeans-image" data-cms="jeans_image"></div>
     </div>
