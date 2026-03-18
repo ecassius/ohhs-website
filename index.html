@@ -223,7 +223,7 @@ img { display: block; max-width: 100%; height: auto; }
 .hero-bg-left,
 .hero-bg-right { min-height: 100%; background-size: cover; background-position: center; }
 .hero-bg-left  { background: linear-gradient(rgba(246,240,235,0.08),rgba(246,240,235,0.08)), url('/images/hero-left.jpg') center/cover no-repeat; }
-.hero-bg-right { background: linear-gradient(rgba(246,240,235,0.05),rgba(246,240,235,0.05)), url('/images/hero-right.jpg') center/cover no-repeat; }
+.hero-bg-right { background: linear-gradient(rgba(246,240,235,0.05),rgba(246,240,235,0.05)), url('/images/hero-right.jpg') top center/cover no-repeat; }
 
 .hero-vignette {
   position: absolute; inset: 0;
@@ -236,13 +236,6 @@ img { display: block; max-width: 100%; height: auto; }
   left: 48px; bottom: 56px;
   z-index: 10;
   max-width: 720px;
-}
-.hero-eyebrow {
-  font-size: 15px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: rgba(246,240,235,0.90);
-  margin: 0 0 14px;
 }
 .hero-headline {
   font-weight: 800;
@@ -315,7 +308,7 @@ img { display: block; max-width: 100%; height: auto; }
 .section-label .first { color: #1C1A18; }
 .section-label .rest  { color: #1C1A18; }
 
-/* Friends title stays white — on blue background */
+/* Friends title stays white — on dark background */
 .friends-title-row .section-title { color: #fff; margin: 0; font-size: clamp(28px, 5vw, 42px); }
 .section-intro {
   font-size: 15px;
@@ -571,10 +564,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 
 /* ─────────────────────────────────────────
-   FRIENDS — compact modern layout
-───────────────────────────────────────── */
-/* ─────────────────────────────────────────
-   FRIENDS — identical to popup, blue bg
+   FRIENDS — black bg
 ───────────────────────────────────────── */
 .friends {
   background: #1C1A18;
@@ -615,6 +605,8 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .friends-perks-row {
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
