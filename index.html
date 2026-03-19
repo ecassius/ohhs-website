@@ -370,7 +370,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* ─────────────────────────────────────────
    THE STORE — image left, copy right
 ───────────────────────────────────────── */
-.store { background: #fff; padding: 80px 48px; }
+.store { background: #fff; padding: 80px 48px 40px; }
 
 .store-statement {
   font-weight: 800;
@@ -391,10 +391,12 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .store-img-main {
   width: 100%;
-  aspect-ratio: 4/5;
-  background: #fff center/contain no-repeat;
 }
-.lazy-loaded .store-img-main { background-image: url('/images/shop-3.jpg'); }
+.store-img-main img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 .store-copy p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 18px; }
 .store-copy p:last-of-type { margin-bottom: 28px; }
@@ -454,7 +456,7 @@ img { display: block; max-width: 100%; height: auto; }
   transition: transform 0.5s ease;
 }
 .arrival-item.a1 .arrival-img,
-.arrival-item.a2 .arrival-img { aspect-ratio: 16/10; }
+.arrival-item.a2 .arrival-img { aspect-ratio: auto; height: 80vh; }
 .arrival-item:hover .arrival-img { transform: scale(1.03); }
 .lazy-loaded .arrival-item.a1 .arrival-img { background-image: url('/images/season-1.jpg'); background-position: top center; }
 .lazy-loaded .arrival-item.a2 .arrival-img { background-image: url('/images/season-2.jpg'); background-position: top center; }
@@ -550,7 +552,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* ─────────────────────────────────────────
    THE JEANS — title full-width, image left / copy right
 ───────────────────────────────────────── */
-.jeans { background: #fff; padding: 80px 48px; }
+.jeans { background: #fff; padding: 80px 48px 40px; }
 .jeans-grid {
   display: grid;
   grid-template-columns: 1fr 0.45fr;
@@ -579,7 +581,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* ─────────────────────────────────────────
    ESCENTRIC MOLECULES — title, image left + copy right
 ───────────────────────────────────────── */
-.molecules { background: #fff; padding: 80px 0; }
+.molecules { background: #fff; padding: 40px 0 80px; }
 .molecules .section-label { padding-left: 48px; }
 
 .molecules-image-grid {
@@ -934,7 +936,7 @@ img { display: block; max-width: 100%; height: auto; }
   .arrival-item.a1,
   .arrival-item.a2 { grid-column: span 1; }
   .arrival-item.a1 .arrival-img,
-  .arrival-item.a2 .arrival-img { aspect-ratio: 3/4; }
+  .arrival-item.a2 .arrival-img { height: auto; aspect-ratio: 3/4; }
 
   .look-grid { grid-template-columns: repeat(2, 1fr); }
   .look-img  { aspect-ratio: 3/4; }
@@ -944,7 +946,7 @@ img { display: block; max-width: 100%; height: auto; }
   .store-layout { grid-template-columns: 1fr; gap: 32px; }
   .store-statement { font-size: clamp(22px, 5.5vw, 32px); max-width: none; }
 
-  .jeans { padding: 56px 24px; }
+  .jeans { padding: 56px 24px 32px; }
   .jeans-grid { grid-template-columns: 1fr; gap: 40px; }
   .jeans-image { margin-top: 0; aspect-ratio: 4/5; }
   .jeans-heading { font-size: clamp(26px, 7vw, 40px); }
@@ -1003,7 +1005,7 @@ img { display: block; max-width: 100%; height: auto; }
   .arrival-item.a1,
   .arrival-item.a2 { grid-column: span 1; }
   .arrival-item.a1 .arrival-img,
-  .arrival-item.a2 .arrival-img { aspect-ratio: 3/4; }
+  .arrival-item.a2 .arrival-img { height: auto; aspect-ratio: 3/4; }
   .store-layout { grid-template-columns: 1fr; gap: 24px; }
   .store-statement { font-size: clamp(20px, 5vw, 28px); margin-bottom: 32px; }
   .store-copy p { font-size: 14px; }
@@ -1179,7 +1181,9 @@ img { display: block; max-width: 100%; height: auto; }
     <h2 class="section-label"><span class="first">The</span> <span class="rest">Store</span></h2>
     <p class="store-statement">A place to look and feel good.</p>
     <div class="store-layout">
-      <div class="store-img-main" data-cms="store_image_3"></div>
+      <div class="store-img-main" data-cms="store_image_3">
+        <img src="/images/shop-3.jpg" alt="One Hundred High Street storefront" loading="lazy">
+      </div>
       <div class="store-copy">
         <p data-cms="store_copy_1"><strong>One Hundred High Street is run by Sue and Debbie, who have been dressing women for years from their two floored shop on Teddington High Street. Every piece in the shop is something they've chosen themselves — brands they've discovered, worn, and kept coming back to season after season.</strong></p>
         <p data-cms="store_copy_2">They're supported by a brilliant team of women who between them genuinely love what they do — make you look and feel good.</p>
