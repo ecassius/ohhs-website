@@ -383,31 +383,19 @@ img { display: block; max-width: 100%; height: auto; }
   margin: 0 auto 56px;
 }
 
-.store-images {
+.store-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 3px;
-  margin-bottom: 56px;
+  grid-template-columns: 0.55fr 0.45fr;
+  gap: 48px;
+  align-items: start;
 }
-.store-img {
+.store-img-main {
   width: 100%;
-  aspect-ratio: 4/5;
+  aspect-ratio: 3/4;
   background: #ccc center/cover no-repeat;
 }
-.store-img.s1 { grid-column: 1; grid-row: 1; }
-.store-img.s2 { grid-column: 1; grid-row: 2; }
-.store-img.s3 { grid-column: 2; grid-row: 1 / 3; aspect-ratio: auto; height: 100%; }
-.lazy-loaded .store-img.s1 { background-image: url('/images/shop-1.jpg'); }
-.lazy-loaded .store-img.s2 { background-image: url('/images/shop-2.jpg'); }
-.lazy-loaded .store-img.s3 { background-image: url('/images/shop-3.jpg'); }
+.lazy-loaded .store-img-main { background-image: url('/images/shop-3.jpg'); }
 
-.store-text-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-}
-.store-text-spacer { }
 .store-copy p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 18px; }
 .store-copy p:last-of-type { margin-bottom: 28px; }
 
@@ -444,26 +432,29 @@ img { display: block; max-width: 100%; height: auto; }
 
 
 /* ─────────────────────────────────────────
-   IN SEASON
+   IN SEASON — Jacquemus-style full-bleed grid
 ───────────────────────────────────────── */
-.arrivals { background: #fff; }
+.arrivals { background: #fff; padding-left: 0; padding-right: 0; padding-bottom: 0; }
+.arrivals .section-label,
+.arrivals .section-intro { padding-left: 48px; }
 
 .arrivals-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 3px;
-  max-width: var(--max);
-  margin: 0 auto;
+  width: 100%;
 }
 .arrival-item.a1,
 .arrival-item.a2 { grid-column: span 2; }
-.arrival-item { background: var(--bg); overflow: hidden; }
+.arrival-item { background: var(--bg); overflow: hidden; position: relative; }
 .arrival-img {
   width: 100%;
   aspect-ratio: 3/4;
   background: #ccc center/cover no-repeat;
   transition: transform 0.5s ease;
 }
+.arrival-item.a1 .arrival-img,
+.arrival-item.a2 .arrival-img { aspect-ratio: 16/10; }
 .arrival-item:hover .arrival-img { transform: scale(1.03); }
 .lazy-loaded .arrival-item.a1 .arrival-img { background-image: url('/images/season-1.jpg'); }
 .lazy-loaded .arrival-item.a2 .arrival-img { background-image: url('/images/season-2.jpg'); }
@@ -471,9 +462,15 @@ img { display: block; max-width: 100%; height: auto; }
 .lazy-loaded .arrival-item.a4 .arrival-img { background-image: url('/images/season-4.jpg'); }
 .lazy-loaded .arrival-item.a5 .arrival-img { background-image: url('/images/season-5.jpg'); }
 .lazy-loaded .arrival-item.a6 .arrival-img { background-image: url('/images/season-6.jpg'); }
-.arrival-label { padding: 10px 10px 6px; }
-.arrival-name  { font-size: 13px; line-height: 1.3; color: var(--dark); }
-.arrival-brand { font-size: 12px; color: var(--grey); margin-top: 2px; }
+.arrival-label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  padding: 0;
+  background: none;
+}
+.arrival-name  { font-size: 14px; font-weight: 700; line-height: 1.3; color: var(--dark); }
+.arrival-brand { font-size: 13px; font-weight: 400; color: var(--dark); margin-top: 2px; text-transform: uppercase; }
 
 
 /* ─────────────────────────────────────────
@@ -923,21 +920,20 @@ img { display: block; max-width: 100%; height: auto; }
   .friends-title-row .section-title { font-size: clamp(24px, 6vw, 36px); }
   .friends-form-row-2 { grid-template-columns: 1fr; }
 
+  .arrivals .section-label,
+  .arrivals .section-intro { padding-left: 24px; }
   .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
   .arrival-item.a1,
   .arrival-item.a2 { grid-column: span 1; }
+  .arrival-item.a1 .arrival-img,
+  .arrival-item.a2 .arrival-img { aspect-ratio: 3/4; }
 
   .look-grid { grid-template-columns: repeat(2, 1fr); }
   .look-img  { aspect-ratio: 3/4; }
   .lookbook-header { max-width: none; }
 
   .store { padding: 56px 24px; }
-  .store-images { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
-  .store-img.s1 { grid-column: 1; grid-row: 1; }
-  .store-img.s2 { grid-column: 1; grid-row: 2; }
-  .store-img.s3 { grid-column: 2; grid-row: 1 / 3; }
-  .store-text-grid { grid-template-columns: 1fr; gap: 0; }
-  .store-text-spacer { display: none; }
+  .store-layout { grid-template-columns: 1fr; gap: 32px; }
   .store-statement { font-size: clamp(22px, 5.5vw, 32px); max-width: none; }
 
   .jeans { padding: 56px 24px; }
@@ -993,13 +989,14 @@ img { display: block; max-width: 100%; height: auto; }
   .section-label { font-size: 15px; letter-spacing: 0.22em; }
   .section-intro { font-size: 14px; }
 
+  .arrivals .section-label,
+  .arrivals .section-intro { padding-left: 20px; }
   .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
   .arrival-item.a1,
   .arrival-item.a2 { grid-column: span 1; }
-  .store-images { grid-template-columns: 1fr; grid-template-rows: auto; }
-  .store-img.s1,
-  .store-img.s2,
-  .store-img.s3 { grid-column: 1; grid-row: auto; aspect-ratio: 4/5; height: auto; }
+  .arrival-item.a1 .arrival-img,
+  .arrival-item.a2 .arrival-img { aspect-ratio: 3/4; }
+  .store-layout { grid-template-columns: 1fr; gap: 24px; }
   .store-statement { font-size: clamp(20px, 5vw, 28px); margin-bottom: 32px; }
   .store-copy p { font-size: 14px; }
 
@@ -1173,13 +1170,8 @@ img { display: block; max-width: 100%; height: auto; }
   <div>
     <h2 class="section-label"><span class="first">The</span> <span class="rest">Store</span></h2>
     <p class="store-statement">A place to look and feel good.</p>
-    <div class="store-images">
-      <div class="store-img s3" data-cms="store_image_3"></div>
-      <div class="store-img s1" data-cms="store_image_1"></div>
-      <div class="store-img s2" data-cms="store_image_2"></div>
-    </div>
-    <div class="store-text-grid">
-      <div class="store-text-spacer"></div>
+    <div class="store-layout">
+      <div class="store-img-main" data-cms="store_image_3"></div>
       <div class="store-copy">
         <p data-cms="store_copy_1">One Hundred High Street is run by Sue and Debbie, who have been dressing women for years from their two floored shop on Teddington High Street. Every piece in the shop is something they've chosen themselves — brands they've discovered, worn, and kept coming back to season after season.</p>
         <p data-cms="store_copy_2">They're supported by a brilliant team of women who between them genuinely love what they do — make you look and feel good.</p>
@@ -1286,7 +1278,7 @@ img { display: block; max-width: 100%; height: auto; }
       <div class="molecules-image" data-cms="molecules_image"></div>
     </div>
     <div class="molecules-text-grid">
-      <p class="molecules-heading">The only stockist in Teddington and Richmond.</p>
+      <p class="molecules-heading">The only stockist<br>in Teddington and Richmond.</p>
       <div class="molecules-copy">
         <p data-cms="molecules_copy_1">We love Escentric Molecules — and we're the only place in Teddington and Richmond where you can find their scents in person.</p>
         <p data-cms="molecules_copy_2">It's a cult fragrance brand built around a single aroma-molecule, Iso E Super, that reacts with your skin rather than sitting on top of it. The result is a scent that smells genuinely different on everyone. Available in store.</p>
