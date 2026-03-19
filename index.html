@@ -22,6 +22,14 @@
 
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+<!-- Preload critical fonts -->
+<link rel="preload" href="/fonts/Aileron-Heavy.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Aileron-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Preconnect for Google Maps iframe -->
+<link rel="preconnect" href="https://www.google.com">
+<link rel="preconnect" href="https://maps.googleapis.com">
+
 <style>
 @font-face {
   font-family: 'Aileron';
@@ -76,6 +84,31 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; height: auto; }
 
 .page-wrap { margin: 0 auto; background: #fff; }
+
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  padding: 12px 24px;
+  background: var(--dark);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.skip-to-content:focus { left: 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
 
 
 /* ─────────────────────────────────────────
@@ -132,7 +165,7 @@ img { display: block; max-width: 100%; height: auto; }
   transition: opacity 0.25s, visibility 0.25s;
 }
 .nav-link {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -223,7 +256,12 @@ img { display: block; max-width: 100%; height: auto; }
 .hero-bg-left,
 .hero-bg-right { min-height: 100%; background-size: cover; background-position: center; }
 .hero-bg-left  { background: linear-gradient(rgba(246,240,235,0.08),rgba(246,240,235,0.08)), url('/images/hero-left.jpg') center/cover no-repeat; }
-.hero-bg-right { background: linear-gradient(rgba(246,240,235,0.05),rgba(246,240,235,0.05)), url('/images/hero-right.jpg') center/cover no-repeat; }
+.hero-bg-right {
+  background-image: linear-gradient(rgba(246,240,235,0.05),rgba(246,240,235,0.05)), url('/images/hero-right.jpg');
+  background-size: cover, cover;
+  background-position: center, top center;
+  background-repeat: no-repeat, no-repeat;
+}
 
 .hero-vignette {
   position: absolute; inset: 0;
@@ -236,13 +274,6 @@ img { display: block; max-width: 100%; height: auto; }
   left: 48px; bottom: 56px;
   z-index: 10;
   max-width: 720px;
-}
-.hero-eyebrow {
-  font-size: 15px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: rgba(246,240,235,0.90);
-  margin: 0 0 14px;
 }
 .hero-headline {
   font-weight: 800;
@@ -303,7 +334,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* Editorial section label — flush left, no decoration */
 .section-label {
   font-weight: 800;
-  font-size: 11px;
+  font-size: 16px;
   line-height: 1;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -315,8 +346,6 @@ img { display: block; max-width: 100%; height: auto; }
 .section-label .first { color: #1C1A18; }
 .section-label .rest  { color: #1C1A18; }
 
-/* Friends title stays white — on blue background */
-.friends-title-row .section-title { color: #fff; margin: 0; font-size: clamp(28px, 5vw, 42px); }
 .section-intro {
   font-size: 15px;
   font-weight: 700;
@@ -356,7 +385,8 @@ img { display: block; max-width: 100%; height: auto; }
 
 .store-images {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
   gap: 3px;
   margin-bottom: 56px;
 }
@@ -365,10 +395,12 @@ img { display: block; max-width: 100%; height: auto; }
   aspect-ratio: 4/5;
   background: #ccc center/cover no-repeat;
 }
-.store-img.s1 { background-image: url('/images/shop-1.jpg'); }
-.store-img.s2 { background-image: url('/images/shop-2.jpg'); }
-.store-img.s3 { background-image: url('/images/shop-3.jpg'); }
-.store-img.s4 { background-image: url('/images/shop-4.jpg'); }
+.store-img.s3 { grid-column: 1 / 3; grid-row: 1; }
+.store-img.s1 { grid-column: 3; grid-row: 1; }
+.store-img.s2 { grid-column: 4; grid-row: 1; }
+.lazy-loaded .store-img.s1 { background-image: url('/images/shop-1.jpg'); }
+.lazy-loaded .store-img.s2 { background-image: url('/images/shop-2.jpg'); }
+.lazy-loaded .store-img.s3 { background-image: url('/images/shop-3.jpg'); }
 
 .store-text-grid {
   display: grid;
@@ -431,12 +463,12 @@ img { display: block; max-width: 100%; height: auto; }
   transition: transform 0.5s ease;
 }
 .arrival-item:hover .arrival-img { transform: scale(1.03); }
-.arrival-item.a1 .arrival-img { background-image: url('/images/season-1.jpg'); }
-.arrival-item.a2 .arrival-img { background-image: url('/images/season-2.jpg'); }
-.arrival-item.a3 .arrival-img { background-image: url('/images/season-3.jpg'); }
-.arrival-item.a4 .arrival-img { background-image: url('/images/season-4.jpg'); }
-.arrival-item.a5 .arrival-img { background-image: url('/images/season-5.jpg'); }
-.arrival-item.a6 .arrival-img { background-image: url('/images/season-6.jpg'); }
+.lazy-loaded .arrival-item.a1 .arrival-img { background-image: url('/images/season-1.jpg'); }
+.lazy-loaded .arrival-item.a2 .arrival-img { background-image: url('/images/season-2.jpg'); }
+.lazy-loaded .arrival-item.a3 .arrival-img { background-image: url('/images/season-3.jpg'); }
+.lazy-loaded .arrival-item.a4 .arrival-img { background-image: url('/images/season-4.jpg'); }
+.lazy-loaded .arrival-item.a5 .arrival-img { background-image: url('/images/season-5.jpg'); }
+.lazy-loaded .arrival-item.a6 .arrival-img { background-image: url('/images/season-6.jpg'); }
 .arrival-label { padding: 10px 10px 6px; }
 .arrival-name  { font-size: 13px; line-height: 1.3; color: var(--dark); }
 .arrival-brand { font-size: 12px; color: var(--grey); margin-top: 2px; }
@@ -469,36 +501,36 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .look-item:hover .look-img { transform: scale(1.04); }
 
-.look-item:nth-child(1)  .look-img { background-image: url('/images/brand-1.jpg'); }
-.look-item:nth-child(2)  .look-img { background-image: url('/images/brand-2.jpg'); }
-.look-item:nth-child(3)  .look-img { background-image: url('/images/brand-3.jpg'); }
-.look-item:nth-child(4)  .look-img { background-image: url('/images/brand-4.jpg'); }
-.look-item:nth-child(5)  .look-img { background-image: url('/images/brand-5.jpg'); }
-.look-item:nth-child(6)  .look-img { background-image: url('/images/brand-6.jpg'); }
-.look-item:nth-child(7)  .look-img { background-image: url('/images/brand-7.jpg'); }
-.look-item:nth-child(8)  .look-img { background-image: url('/images/brand-8.jpg'); }
-.look-item:nth-child(9)  .look-img { background-image: url('/images/brand-9.jpg'); }
-.look-item:nth-child(10) .look-img { background-image: url('/images/brand-10.jpg'); }
-.look-item:nth-child(11) .look-img { background-image: url('/images/brand-11.jpg'); }
-.look-item:nth-child(12) .look-img { background-image: url('/images/brand-12.jpg'); }
-.look-item:nth-child(13) .look-img { background-image: url('/images/brand-13.jpg'); }
-.look-item:nth-child(14) .look-img { background-image: url('/images/brand-14.jpg'); }
-.look-item:nth-child(15) .look-img { background-image: url('/images/brand-15.jpg'); }
-.look-item:nth-child(16) .look-img { background-image: url('/images/brand-16.jpg'); }
-.look-item:nth-child(17) .look-img { background-image: url('/images/brand-17.jpg'); }
-.look-item:nth-child(18) .look-img { background-image: url('/images/brand-18.jpg'); }
-.look-item:nth-child(19) .look-img { background-image: url('/images/brand-19.jpg'); }
-.look-item:nth-child(20) .look-img { background-image: url('/images/brand-20.jpg'); }
-.look-item:nth-child(21) .look-img { background-image: url('/images/brand-21.jpg'); }
-.look-item:nth-child(22) .look-img { background-image: url('/images/brand-22.jpg'); }
-.look-item:nth-child(23) .look-img { background-image: url('/images/brand-23.jpg'); }
-.look-item:nth-child(24) .look-img { background-image: url('/images/brand-24.jpg'); }
-.look-item:nth-child(25) .look-img { background-image: url('/images/brand-25.jpg'); }
-.look-item:nth-child(26) .look-img { background-image: url('/images/brand-26.jpg'); }
-.look-item:nth-child(27) .look-img { background-image: url('/images/brand-27.jpg'); }
-.look-item:nth-child(28) .look-img { background-image: url('/images/brand-28.jpg'); }
-.look-item:nth-child(29) .look-img { background-image: url('/images/brand-29.jpg'); }
-.look-item:nth-child(30) .look-img { background-image: url('/images/brand-30.jpg'); }
+.lazy-loaded .look-item:nth-child(1)  .look-img { background-image: url('/images/brand-1.jpg'); }
+.lazy-loaded .look-item:nth-child(2)  .look-img { background-image: url('/images/brand-2.jpg'); }
+.lazy-loaded .look-item:nth-child(3)  .look-img { background-image: url('/images/brand-3.jpg'); }
+.lazy-loaded .look-item:nth-child(4)  .look-img { background-image: url('/images/brand-4.jpg'); }
+.lazy-loaded .look-item:nth-child(5)  .look-img { background-image: url('/images/brand-5.jpg'); }
+.lazy-loaded .look-item:nth-child(6)  .look-img { background-image: url('/images/brand-6.jpg'); }
+.lazy-loaded .look-item:nth-child(7)  .look-img { background-image: url('/images/brand-7.jpg'); }
+.lazy-loaded .look-item:nth-child(8)  .look-img { background-image: url('/images/brand-8.jpg'); }
+.lazy-loaded .look-item:nth-child(9)  .look-img { background-image: url('/images/brand-9.jpg'); }
+.lazy-loaded .look-item:nth-child(10) .look-img { background-image: url('/images/brand-10.jpg'); }
+.lazy-loaded .look-item:nth-child(11) .look-img { background-image: url('/images/brand-11.jpg'); }
+.lazy-loaded .look-item:nth-child(12) .look-img { background-image: url('/images/brand-12.jpg'); }
+.lazy-loaded .look-item:nth-child(13) .look-img { background-image: url('/images/brand-13.jpg'); }
+.lazy-loaded .look-item:nth-child(14) .look-img { background-image: url('/images/brand-14.jpg'); }
+.lazy-loaded .look-item:nth-child(15) .look-img { background-image: url('/images/brand-15.jpg'); }
+.lazy-loaded .look-item:nth-child(16) .look-img { background-image: url('/images/brand-16.jpg'); }
+.lazy-loaded .look-item:nth-child(17) .look-img { background-image: url('/images/brand-17.jpg'); }
+.lazy-loaded .look-item:nth-child(18) .look-img { background-image: url('/images/brand-18.jpg'); }
+.lazy-loaded .look-item:nth-child(19) .look-img { background-image: url('/images/brand-19.jpg'); }
+.lazy-loaded .look-item:nth-child(20) .look-img { background-image: url('/images/brand-20.jpg'); }
+.lazy-loaded .look-item:nth-child(21) .look-img { background-image: url('/images/brand-21.jpg'); }
+.lazy-loaded .look-item:nth-child(22) .look-img { background-image: url('/images/brand-22.jpg'); }
+.lazy-loaded .look-item:nth-child(23) .look-img { background-image: url('/images/brand-23.jpg'); }
+.lazy-loaded .look-item:nth-child(24) .look-img { background-image: url('/images/brand-24.jpg'); }
+.lazy-loaded .look-item:nth-child(25) .look-img { background-image: url('/images/brand-25.jpg'); }
+.lazy-loaded .look-item:nth-child(26) .look-img { background-image: url('/images/brand-26.jpg'); }
+.lazy-loaded .look-item:nth-child(27) .look-img { background-image: url('/images/brand-27.jpg'); }
+.lazy-loaded .look-item:nth-child(28) .look-img { background-image: url('/images/brand-28.jpg'); }
+.lazy-loaded .look-item:nth-child(29) .look-img { background-image: url('/images/brand-29.jpg'); }
+.lazy-loaded .look-item:nth-child(30) .look-img { background-image: url('/images/brand-30.jpg'); }
 
 .look-label { padding: 9px 9px 11px; background: #fff; }
 .look-brand-name { font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--dark); }
@@ -510,9 +542,10 @@ img { display: block; max-width: 100%; height: auto; }
 .jeans { background: #fff; padding: 80px 48px; }
 .jeans-grid {
   display: grid;
-  grid-template-columns: 0.6fr 0.4fr;
-  gap: 64px;
+  grid-template-columns: 1fr 280px;
+  gap: 48px;
   align-items: start;
+  max-width: 900px;
 }
 .jeans-heading {
   font-weight: 800;
@@ -524,10 +557,10 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .jeans-image {
   width: 100%;
-  aspect-ratio: 2/3;
-  background: #ccc url('/images/jeans.jpg') center/cover no-repeat;
-  margin-top: -24px;
+  aspect-ratio: 3/2;
+  background: #ccc center/cover no-repeat;
 }
+.lazy-loaded .jeans-image { background-image: url('/images/jeans.jpg'); }
 .jeans-copy p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 18px; }
 
 
@@ -546,7 +579,7 @@ img { display: block; max-width: 100%; height: auto; }
 .molecules-image {
   width: 100%;
   aspect-ratio: 16/8;
-  background: #ccc url('/images/molecules.jpg') center/cover no-repeat;
+  background: #ccc center/cover no-repeat;
 }
 
 .molecules-text-grid {
@@ -564,6 +597,7 @@ img { display: block; max-width: 100%; height: auto; }
   color: var(--dark);
   margin: 0;
 }
+.lazy-loaded .molecules-image { background-image: url('/images/molecules.jpg'); }
 .molecules-copy { padding-top: 8px; }
 .molecules-copy p { font-size: 15px; line-height: 1.65; color: var(--dark); margin: 0 0 18px; }
 .molecules-copy p:last-child { margin-bottom: 0; }
@@ -571,10 +605,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 
 /* ─────────────────────────────────────────
-   FRIENDS — compact modern layout
-───────────────────────────────────────── */
-/* ─────────────────────────────────────────
-   FRIENDS — identical to popup, blue bg
+   FRIENDS — black bg
 ───────────────────────────────────────── */
 .friends {
   background: #1C1A18;
@@ -615,6 +646,8 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .friends-perks-row {
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -870,9 +903,8 @@ img { display: block; max-width: 100%; height: auto; }
 
   .hero { padding-top: 53px; }
   .hero-bg { grid-template-columns: 1fr; grid-template-rows: 42vh 50vh; }
-  .hero-copy { left: 24px; right: 24px; bottom: 100px; max-width: none; }
+  .hero-copy { left: 24px; right: 24px; bottom: 140px; max-width: none; }
   .hero-headline { font-size: clamp(40px, 10vw, 64px); }
-  .hero-copy { bottom: 140px; }
   .hero-cta { left: 24px; right: auto; bottom: 32px; align-items: flex-start; flex-direction: row; gap: 16px; }
 
   .section { padding: 56px 24px; }
@@ -891,7 +923,10 @@ img { display: block; max-width: 100%; height: auto; }
   .lookbook-header { max-width: none; }
 
   .store { padding: 56px 24px; }
-  .store-images { grid-template-columns: repeat(2, 1fr); }
+  .store-images { grid-template-columns: 1fr 1fr; }
+  .store-img.s3 { grid-column: 1 / 3; }
+  .store-img.s1 { grid-column: 1; grid-row: 2; }
+  .store-img.s2 { grid-column: 2; grid-row: 2; }
   .store-text-grid { grid-template-columns: 1fr; gap: 0; }
   .store-text-spacer { display: none; }
   .store-statement { font-size: clamp(22px, 5.5vw, 32px); max-width: none; }
@@ -946,11 +981,14 @@ img { display: block; max-width: 100%; height: auto; }
 
   .hero-headline .hero-line { white-space: normal !important; }
 
-  .section-label { font-size: 11px; letter-spacing: 0.22em; }
+  .section-label { font-size: 15px; letter-spacing: 0.22em; }
   .section-intro { font-size: 14px; }
 
   .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
-  .store-images { grid-template-columns: 1fr 1fr; }
+  .store-images { grid-template-columns: 1fr; }
+  .store-img.s3,
+  .store-img.s1,
+  .store-img.s2 { grid-column: 1; grid-row: auto; }
   .store-statement { font-size: clamp(20px, 5vw, 28px); margin-bottom: 32px; }
   .store-copy p { font-size: 14px; }
 
@@ -1066,6 +1104,7 @@ img { display: block; max-width: 100%; height: auto; }
 </head>
 <body>
 
+<a href="#store" class="skip-to-content">Skip to content</a>
 <div class="page-wrap">
 
 <!-- NAV -->
@@ -1123,10 +1162,9 @@ img { display: block; max-width: 100%; height: auto; }
     <h2 class="section-label"><span class="first">The</span> <span class="rest">Store</span></h2>
     <p class="store-statement">A place to look and feel good.</p>
     <div class="store-images">
+      <div class="store-img s3" data-cms="store_image_3"></div>
       <div class="store-img s1" data-cms="store_image_1"></div>
       <div class="store-img s2" data-cms="store_image_2"></div>
-      <div class="store-img s3" data-cms="store_image_3"></div>
-      <div class="store-img s4" data-cms="store_image_4"></div>
     </div>
     <div class="store-text-grid">
       <div class="store-text-spacer"></div>
@@ -1201,7 +1239,7 @@ img { display: block; max-width: 100%; height: auto; }
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Kate Sheridan</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Handprint Dream Apparel</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Hod</div></div></div>
-      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Indi & Cold</div></div></div>
+      <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Indi &amp; Cold</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Jumper 1234</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">LF Markey</div></div></div>
       <div class="look-item"><div class="look-img"></div><div class="look-label"><div class="look-brand-name">Lilith</div></div></div>
@@ -1282,10 +1320,13 @@ img { display: block; max-width: 100%; height: auto; }
           method="post" id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form" target="_blank" novalidate>
       <div class="friends-form-row-2">
-        <input class="friends-input" name="FNAME" type="text" placeholder="First name">
-        <input class="friends-input" name="LNAME" type="text" placeholder="Last name">
+        <label class="sr-only" for="friends-fname">First name</label>
+        <input class="friends-input" id="friends-fname" name="FNAME" type="text" placeholder="First name">
+        <label class="sr-only" for="friends-lname">Last name</label>
+        <input class="friends-input" id="friends-lname" name="LNAME" type="text" placeholder="Last name">
       </div>
-      <select class="friends-input" name="MMERGE3[month]" aria-label="Birthday month">
+      <label class="sr-only" for="friends-bday">Birthday month</label>
+      <select class="friends-input" id="friends-bday" name="MMERGE3[month]" aria-label="Birthday month">
         <option value="">Birthday month</option>
         <option value="01">January</option><option value="02">February</option>
         <option value="03">March</option><option value="04">April</option>
@@ -1296,7 +1337,8 @@ img { display: block; max-width: 100%; height: auto; }
       </select>
       <input type="hidden" name="MMERGE3[day]" value="01">
       <input type="hidden" name="MMERGE3[year]" value="1900">
-      <input class="friends-input" name="EMAIL" type="email" placeholder="Email address" required>
+      <label class="sr-only" for="friends-email">Email address</label>
+      <input class="friends-input" id="friends-email" name="EMAIL" type="email" placeholder="Email address" required>
       <div style="position:absolute;left:-5000px" aria-hidden="true">
         <input type="text" name="b_652e99eb369dba635448f3961_d7150f8098" tabindex="-1" value="">
       </div>
@@ -1371,10 +1413,13 @@ img { display: block; max-width: 100%; height: auto; }
           action="https://onehundredhighstreet.us15.list-manage.com/subscribe/post?u=652e99eb369dba635448f3961&amp;id=d7150f8098&amp;f_id=00b6afe0f0"
           method="post" target="_blank" novalidate>
       <div class="friends-popup-row">
-        <input class="friends-popup-input" type="text" name="FNAME" placeholder="First name">
-        <input class="friends-popup-input" type="text" name="LNAME" placeholder="Last name">
+        <label class="sr-only" for="popup-fname">First name</label>
+        <input class="friends-popup-input" id="popup-fname" type="text" name="FNAME" placeholder="First name">
+        <label class="sr-only" for="popup-lname">Last name</label>
+        <input class="friends-popup-input" id="popup-lname" type="text" name="LNAME" placeholder="Last name">
       </div>
-      <select class="friends-popup-input" name="MMERGE3[month]" aria-label="Birthday month">
+      <label class="sr-only" for="popup-bday">Birthday month</label>
+      <select class="friends-popup-input" id="popup-bday" name="MMERGE3[month]" aria-label="Birthday month">
         <option value="">Birthday month</option>
         <option value="01">January</option><option value="02">February</option>
         <option value="03">March</option><option value="04">April</option>
@@ -1385,7 +1430,8 @@ img { display: block; max-width: 100%; height: auto; }
       </select>
       <input type="hidden" name="MMERGE3[day]" value="01">
       <input type="hidden" name="MMERGE3[year]" value="1900">
-      <input class="friends-popup-input" type="email" name="EMAIL" placeholder="Email address" required>
+      <label class="sr-only" for="popup-email">Email address</label>
+      <input class="friends-popup-input" id="popup-email" type="email" name="EMAIL" placeholder="Email address" required>
       <div style="position:absolute;left:-5000px" aria-hidden="true">
         <input type="text" name="b_652e99eb369dba635448f3961_d7150f8098" tabindex="-1" value="">
       </div>
@@ -1434,6 +1480,24 @@ window.addEventListener('load', () => {
   setTimeout(() => popup.classList.add('visible'), 4000);
 });
 
+// LAZY LOAD — reveal background images when section nears viewport
+(function() {
+  var sections = document.querySelectorAll('.arrivals, .lookbook, .store, .jeans, .molecules');
+  if (!('IntersectionObserver' in window)) {
+    sections.forEach(function(s) { s.classList.add('lazy-loaded'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('lazy-loaded');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '200px' });
+  sections.forEach(function(s) { io.observe(s); });
+})();
+
 // NETLIFY IDENTITY REDIRECT
 if (window.netlifyIdentity) {
   window.netlifyIdentity.on("init", user => {
@@ -1471,15 +1535,34 @@ if (window.netlifyIdentity) {
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // Delegate clicks on brand cards
-  document.getElementById('edit-brands-grid').addEventListener('click', function(e) {
-    const item = e.target.closest('.look-item');
-    if (!item) return;
-    const imgDiv = item.querySelector('.look-img');
+  // Make brand cards keyboard-accessible
+  var grid = document.getElementById('edit-brands-grid');
+  var items = grid.querySelectorAll('.look-item');
+  items.forEach(function(item) {
+    item.setAttribute('role', 'button');
+    item.setAttribute('tabindex', '0');
+  });
+
+  function handleBrandClick(item) {
+    var imgDiv = item.querySelector('.look-img');
     if (!imgDiv) return;
-    const bg = imgDiv.style.backgroundImage || getComputedStyle(imgDiv).backgroundImage;
-    const match = bg.match(/url\(['"]?(.+?)['"]?\)/);
+    var bg = imgDiv.style.backgroundImage || getComputedStyle(imgDiv).backgroundImage;
+    var match = bg.match(/url\(['"]?(.+?)['"]?\)/);
     if (match) openLightbox(match[1]);
+  }
+
+  // Delegate clicks on brand cards
+  grid.addEventListener('click', function(e) {
+    var item = e.target.closest('.look-item');
+    if (item) handleBrandClick(item);
+  });
+
+  // Keyboard support (Enter / Space)
+  grid.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      var item = e.target.closest('.look-item');
+      if (item) { e.preventDefault(); handleBrandClick(item); }
+    }
   });
 })();
 </script>
