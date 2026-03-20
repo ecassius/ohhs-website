@@ -119,13 +119,15 @@ img { display: block; max-width: 100%; height: auto; }
   top: 0; left: 0; right: 0;
   z-index: 60;
   padding: 20px 40px;
-  background: rgba(246,240,235,0.97);
+  background: rgba(255,255,255,0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  transition: padding 0.3s ease;
 }
 /* Scrolled state — compact, hamburger replaces links */
 .nav.scrolled {
   padding: 14px 40px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
 }
 .nav.scrolled .nav-links {
   opacity: 0;
@@ -142,6 +144,7 @@ img { display: block; max-width: 100%; height: auto; }
   align-items: center;
   justify-content: space-between;
   gap: 40px;
+  height: 17px;
 }
 
 /* Logo — left side */
@@ -548,6 +551,18 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .look-brand-name { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--dark); }
 
+/* White captions for specific brand images */
+.look-item:nth-child(3) .look-brand-name,
+.look-item:nth-child(7) .look-brand-name,
+.look-item:nth-child(10) .look-brand-name,
+.look-item:nth-child(19) .look-brand-name,
+.look-item:nth-child(20) .look-brand-name,
+.look-item:nth-child(28) .look-brand-name { color: #fff; }
+
+/* White caption for season-6 */
+.arrival-item.a6 .arrival-name,
+.arrival-item.a6 .arrival-brand { color: #fff; }
+
 
 /* ─────────────────────────────────────────
    THE JEANS — title full-width, image left / copy right
@@ -605,8 +620,8 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .molecules-heading {
   font-weight: 800;
-  font-size: clamp(20px, 2.5vw, 30px);
-  line-height: 1.15;
+  font-size: clamp(26px, 4vw, 46px);
+  line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--dark);
   margin: 0;
@@ -912,6 +927,7 @@ img { display: block; max-width: 100%; height: auto; }
 ───────────────────────────────────────── */
 @media (max-width: 980px) {
   .nav { padding: 16px 20px; }
+  .nav.scrolled { padding: 14px 20px; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
 
@@ -957,7 +973,7 @@ img { display: block; max-width: 100%; height: auto; }
   .molecules-image-spacer { display: none; }
   .molecules-image { aspect-ratio: 16/10; }
   .molecules-text-grid { grid-template-columns: 1fr; gap: 24px; padding: 0; }
-  .molecules-heading { font-size: clamp(18px, 4.5vw, 26px); }
+  .molecules-heading { font-size: clamp(26px, 7vw, 40px); }
 
   .find-us { padding: 56px 24px; }
   .find-us-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -1012,7 +1028,7 @@ img { display: block; max-width: 100%; height: auto; }
 
   .jeans-heading { font-size: clamp(22px, 6vw, 32px); }
   .jeans-copy p { font-size: 14px; }
-  .molecules-heading { font-size: clamp(16px, 4vw, 22px); }
+  .molecules-heading { font-size: clamp(22px, 6vw, 32px); }
   .molecules-copy p { font-size: 14px; }
   .find-us-heading { font-size: clamp(20px, 5vw, 28px); }
   .find-us-info p { font-size: 14px; }
@@ -1219,7 +1235,7 @@ img { display: block; max-width: 100%; height: auto; }
     <div class="arrival-item a2"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Shirt</div><div class="arrival-brand">Sacrécoeur</div></div></div>
     <div class="arrival-item a3"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Neon Pink Gilet</div><div class="arrival-brand">American Vintage</div></div></div>
     <div class="arrival-item a4"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Striped Cotton Shirt</div><div class="arrival-brand">Bellerose</div></div></div>
-    <div class="arrival-item a5"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Green Dress</div><div class="arrival-brand">Petite Mendigote</div></div></div>
+    <div class="arrival-item a5"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Knitted Shirt</div><div class="arrival-brand">Petite Mendigote</div></div></div>
     <div class="arrival-item a6"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">White Cotton Shirt</div><div class="arrival-brand">Lilith</div></div></div>
   </div>
 </section>
