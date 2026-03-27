@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" width="320" height="90">
+  <defs>
+    <!-- Bubble gradients -->
+    <radialGradient id="v2-purp" cx="35%" cy="30%" r="65%">
+      <stop offset="0%"   stop-color="#D4C8FF" stop-opacity="0.6"/>
+      <stop offset="40%"  stop-color="#7B5EFF" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2D14A0" stop-opacity="0.5"/>
+    </radialGradient>
+    <radialGradient id="v2-grn" cx="38%" cy="28%" r="60%">
+      <stop offset="0%"   stop-color="#E8FFB0" stop-opacity="0.7"/>
+      <stop offset="40%"  stop-color="#B8F05A" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#4A8000" stop-opacity="0.45"/>
+    </radialGradient>
+    <radialGradient id="v2-tiny" cx="40%" cy="32%" r="60%">
+      <stop offset="0%"   stop-color="#EDE8FF" stop-opacity="0.75"/>
+      <stop offset="50%"  stop-color="#9B80FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#5533CC"  stop-opacity="0.5"/>
+    </radialGradient>
+    <radialGradient id="v2-spec-p" cx="35%" cy="20%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="55%"  stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="v2-spec-g" cx="38%" cy="22%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="55%"  stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="v2-spec-t" cx="40%" cy="25%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="60%"  stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Glass text gradient -->
+    <linearGradient id="v2-text-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#DDD5FF" stop-opacity="1"/>
+      <stop offset="30%"  stop-color="#A892FF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#4A28C8" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Clip text shape for specular overlay -->
+    <clipPath id="v2-text-clip">
+      <text x="98" y="57"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-weight="800" font-size="40" letter-spacing="-2">blent</text>
+    </clipPath>
+
+    <filter id="v2-shadow-p" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5"
+        flood-color="#4422CC" flood-opacity="0.25"/>
+    </filter>
+    <filter id="v2-shadow-g" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4"
+        flood-color="#4A8000" flood-opacity="0.2"/>
+    </filter>
+    <filter id="v2-text-glow" x="-5%" y="-20%" width="110%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4"
+        flood-color="#7B5EFF" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Large purple bubble -->
+  <circle cx="34" cy="48" r="30"
+    fill="none" stroke="#7B5EFF" stroke-width="1" opacity="0.15"/>
+  <circle cx="34" cy="48" r="28"
+    fill="url(#v2-purp)"
+    stroke="#C4B5FF" stroke-width="0.7" stroke-opacity="0.55"
+    filter="url(#v2-shadow-p)"/>
+  <ellipse cx="25" cy="35" rx="13" ry="8" fill="url(#v2-spec-p)"/>
+  <ellipse cx="22" cy="32" rx="4" ry="2.5" fill="white" opacity="0.7"/>
+  <path d="M 55 56 A 28 28 0 0 1 22 70"
+    fill="none" stroke="white" stroke-width="0.7"
+    stroke-opacity="0.2" stroke-linecap="round"/>
+
+  <!-- Small green bubble -->
+  <circle cx="62" cy="36" r="23"
+    fill="none" stroke="#B8F05A" stroke-width="1" opacity="0.18"/>
+  <circle cx="62" cy="36" r="21"
+    fill="url(#v2-grn)"
+    stroke="#D4FF88" stroke-width="0.7" stroke-opacity="0.6"
+    filter="url(#v2-shadow-g)"/>
+  <ellipse cx="54" cy="25" rx="10" ry="6.5" fill="url(#v2-spec-g)"/>
+  <ellipse cx="52" cy="23" rx="3" ry="2" fill="white" opacity="0.72"/>
+  <path d="M 78 42 A 21 21 0 0 1 50 52"
+    fill="none" stroke="white" stroke-width="0.7"
+    stroke-opacity="0.22" stroke-linecap="round"/>
+
+  <!-- Tiny bubble -->
+  <circle cx="50" cy="68" r="12"
+    fill="url(#v2-tiny)"
+    stroke="#C4B5FF" stroke-width="0.6" stroke-opacity="0.5"/>
+  <ellipse cx="45" cy="62" rx="5.5" ry="3.5" fill="url(#v2-spec-t)"/>
+  <ellipse cx="44" cy="61" rx="2" ry="1.3" fill="white" opacity="0.65"/>
+
+  <!-- Glass text: gradient fill + glow -->
+  <text x="98" y="57"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-weight="800" font-size="40" letter-spacing="-2"
+    fill="url(#v2-text-grad)"
+    filter="url(#v2-text-glow)">blent</text>
+
+  <!-- White specular highlight clipped to text -->
+  <rect x="98" y="17" width="220" height="16"
+    fill="white" opacity="0.28"
+    clip-path="url(#v2-text-clip)"/>
+
+  <!-- Thin glass stroke on text -->
+  <text x="98" y="57"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-weight="800" font-size="40" letter-spacing="-2"
+    fill="none"
+    stroke="#C4B5FF" stroke-width="0.5" stroke-opacity="0.6">blent</text>
+</svg>
