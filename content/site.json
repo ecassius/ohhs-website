@@ -11,44 +11,146 @@
   "store_image_3": "/images/shop-3.jpg",
   "opening_hours": "Monday to Saturday: 10.30am – 5.30pm",
   "in_season": [
-    { "image": "/images/season-1.jpg", "name": "Wax Cotton Coat", "brand": "Kate Sheridan" },
-    { "image": "/images/season-2.jpg", "name": "Cotton Shirt", "brand": "Sacrécoeur" },
-    { "image": "/images/season-3.jpg", "name": "Neon Pink Gilet", "brand": "American Vintage" },
-    { "image": "/images/season-4.jpg", "name": "Striped Cotton Shirt", "brand": "Bellerose" },
-    { "image": "/images/season-5.jpg", "name": "Cotton Green Dress", "brand": "Petite Mendigote" },
-    { "image": "/images/season-6.jpg", "name": "White Cotton Shirt", "brand": "Lilith" }
+    {
+      "image": "/images/season-1.jpg",
+      "name": "Wax Cotton Coat",
+      "brand": "Kate Sheridan"
+    },
+    {
+      "image": "/images/season-2.jpg",
+      "name": "Cotton Shirt",
+      "brand": "Sacrécoeur"
+    },
+    {
+      "image": "/images/season-3.jpg",
+      "name": "Neon Pink Gilet",
+      "brand": "American Vintage"
+    },
+    {
+      "image": "/images/season-4.jpg",
+      "name": "Striped Cotton Shirt",
+      "brand": "Bellerose"
+    },
+    {
+      "image": "/images/season-5.jpg",
+      "name": "Cotton Green Dress",
+      "brand": "Petite Mendigote"
+    },
+    {
+      "image": "/images/season-6.jpg",
+      "name": "White Cotton Shirt",
+      "brand": "Lilith"
+    }
   ],
   "edit_brands": [
-    { "image": "/images/brand-1.jpg", "brand_name": "American Vintage" },
-    { "image": "/images/brand-2.jpg", "brand_name": "Bellerose" },
-    { "image": "/images/brand-3.jpg", "brand_name": "Ichi" },
-    { "image": "/images/brand-4.jpg", "brand_name": "Absolut Cashmere" },
-    { "image": "/images/brand-5.jpg", "brand_name": "European Culture" },
-    { "image": "/images/brand-6.jpg", "brand_name": "Transit" },
-    { "image": "/images/brand-7.jpg", "brand_name": "Free People" },
-    { "image": "/images/brand-8.jpg", "brand_name": "Ilse Jacobsen" },
-    { "image": "/images/brand-9.jpg", "brand_name": "Maison Anje" },
-    { "image": "/images/brand-10.jpg", "brand_name": "Oui" },
-    { "image": "/images/brand-11.jpg", "brand_name": "NYDJ" },
-    { "image": "/images/brand-12.jpg", "brand_name": "Red Button" },
-    { "image": "/images/brand-13.jpg", "brand_name": "Sacre Coeur" },
-    { "image": "/images/brand-14.jpg", "brand_name": "Le Bon Shoppe" },
-    { "image": "/images/brand-15.jpg", "brand_name": "Vilagallo" },
-    { "image": "/images/brand-16.jpg", "brand_name": "Lofina" },
-    { "image": "/images/brand-17.jpg", "brand_name": "Beck Sondergaard" },
-    { "image": "/images/brand-18.jpg", "brand_name": "Terre Rouge" },
-    { "image": "/images/brand-19.jpg", "brand_name": "Knekki" },
-    { "image": "/images/brand-20.jpg", "brand_name": "Kate Sheridan" },
-    { "image": "/images/brand-21.jpg", "brand_name": "Handprint Dream Apparel" },
-    { "image": "/images/brand-22.jpg", "brand_name": "Hod" },
-    { "image": "/images/brand-23.jpg", "brand_name": "Indi & Cold" },
-    { "image": "/images/brand-24.jpg", "brand_name": "Jumper 1234" },
-    { "image": "/images/brand-25.jpg", "brand_name": "LF Markey" },
-    { "image": "/images/brand-26.jpg", "brand_name": "Lilith" },
-    { "image": "/images/brand-27.jpg", "brand_name": "Lollys Laundry" },
-    { "image": "/images/brand-28.jpg", "brand_name": "Orfeo" },
-    { "image": "/images/brand-29.jpg", "brand_name": "Petite Mendigote" },
-    { "image": "/images/brand-30.jpg", "brand_name": "One Tee" }
+    {
+      "image": "/images/brand-1.jpg",
+      "brand_name": "American Vintage"
+    },
+    {
+      "image": "/images/brand-2.jpg",
+      "brand_name": "Bellerose"
+    },
+    {
+      "image": "/images/brand-3.jpg",
+      "brand_name": "Ichi"
+    },
+    {
+      "image": "/images/brand-4.jpg",
+      "brand_name": "Absolut Cashmere"
+    },
+    {
+      "image": "/images/brand-5.jpg",
+      "brand_name": "European Culture"
+    },
+    {
+      "image": "/images/brand-6.jpg",
+      "brand_name": "Transit"
+    },
+    {
+      "image": "/images/brand-7.jpg",
+      "brand_name": "Free People"
+    },
+    {
+      "image": "/images/brand-8.jpg",
+      "brand_name": "Ilse Jacobsen"
+    },
+    {
+      "image": "/images/brand-9.jpg",
+      "brand_name": "Maison Anje"
+    },
+    {
+      "image": "/images/brand-10.jpg",
+      "brand_name": "Oui"
+    },
+    {
+      "image": "/images/brand-11.jpg",
+      "brand_name": "NYDJ"
+    },
+    {
+      "image": "/images/brand-12.jpg",
+      "brand_name": "Red Button"
+    },
+    {
+      "image": "/images/brand-13.jpg",
+      "brand_name": "Sacre Coeur"
+    },
+    {
+      "image": "/images/brand-14.jpg",
+      "brand_name": "Le Bon Shoppe"
+    },
+    {
+      "image": "/images/brand-15.jpg",
+      "brand_name": "Vilagallo"
+    },
+    {
+      "image": "/images/brand-16.jpg",
+      "brand_name": "Lofina"
+    },
+    {
+      "image": "/images/brand-17.jpg",
+      "brand_name": "Beck Sondergaard"
+    },
+    {
+      "image": "/images/brand-18.jpg",
+      "brand_name": "Knekki"
+    },
+    {
+      "image": "/images/brand-19.jpg",
+      "brand_name": "Kate Sheridan"
+    },
+    {
+      "image": "/images/brand-20.jpg",
+      "brand_name": "Hod"
+    },
+    {
+      "image": "/images/brand-21.jpg",
+      "brand_name": "Jumper 1234"
+    },
+    {
+      "image": "/images/brand-22.jpg",
+      "brand_name": "LF Markey"
+    },
+    {
+      "image": "/images/brand-23.jpg",
+      "brand_name": "Lollys Laundry"
+    },
+    {
+      "image": "/images/brand-24.jpg",
+      "brand_name": "Orfeo"
+    },
+    {
+      "image": "/images/brand-25.jpg",
+      "brand_name": "One Tee"
+    },
+    {
+      "image": "/images/brand-26.jpg",
+      "brand_name": "Dawn + Dare"
+    },
+    {
+      "image": "/images/brand-27.jpg",
+      "brand_name": "Penelope Chilvers"
+    }
   ],
   "jeans_image": "/images/jeans.jpg",
   "jeans_copy_1": "Jeans are kind of our thing.",
