@@ -286,13 +286,8 @@ img { display: block; max-width: 100%; height: auto; }
   text-transform: uppercase;
   margin: 0;
 }
-/* Both hero panes are pale, high-key images. Against the headline zone
-   (luminance 0.293 after the bg wash and vignette) --blue gave 2.19:1 and
-   --grey 1.35:1; --dark gives 5.67:1. The blue only clears 4.5:1 once
-   darkened to #10294C, which no longer reads as the brand blue, so the
-   headline runs in --dark and the blue accent stays in the nav wordmark. */
-.hero-headline .one  { color: var(--dark); font-weight: 800; }
-.hero-headline .rest { color: var(--dark); }
+.hero-headline .one  { color: var(--blue); font-weight: 800; }
+.hero-headline .rest { color: var(--grey); }
 
 .hero-cta {
   position: absolute;
