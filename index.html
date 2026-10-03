@@ -1006,7 +1006,14 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 @media (max-width: 768px) {
-  .hero-bg-single { min-height: 100vh; }
+  /* A 1.93-wide image in a portrait viewport shows only ~24% of its
+     width. Anchor left so the crop keeps the left-hand model and drops
+     the right-hand one; 20% rather than 0% because the hard left edge
+     cuts her face. First position is the wash gradient, second the image. */
+  .hero-bg-single {
+    min-height: 100vh;
+    background-position: center, 20% center;
+  }
   .hero-headline { font-size: clamp(36px, 10vw, 56px); }
   .hero-copy { bottom: 160px; }
   .hero-cta { flex-direction: column; gap: 12px; }
