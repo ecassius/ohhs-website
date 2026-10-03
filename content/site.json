@@ -1,8 +1,7 @@
 {
   "hero_headline": "ONE HUNDRED HIGH STREET",
   "hero_subheading": "A PLACE TO LOOK AND FEEL GOOD.",
-  "hero_image_left": "/images/hero-left.jpg",
-  "hero_image_right": "/images/hero-right.jpg",
+  "hero_image": "/images/hero.jpg",
   "store_copy_1": "One Hundred High Street is run by Sue and Debbie, who have been dressing women for years from their two floored shop on Teddington High Street. Every piece in the shop is something they've chosen themselves — brands they've discovered, worn, and kept coming back to season after season.",
   "store_copy_2": "They're supported by a brilliant team of women who between them genuinely love what they do — make you look and feel good.",
   "store_copy_3": "Whether you're popping in for a quick look or staying a little longer to try things on and talk things through, you'll always find a friendly face. And if you're on the hunt for the perfect pair of jeans, they offer a personalised fitting service in store too.",
@@ -13,33 +12,38 @@
   "in_season": [
     {
       "image": "/images/season-1.jpg",
-      "name": "Wax Cotton Coat",
-      "brand": "Kate Sheridan"
+      "name": "Faux Fur Bag",
+      "brand": "Bellerose"
     },
     {
       "image": "/images/season-2.jpg",
-      "name": "Cotton Shirt",
-      "brand": "Sacrécoeur"
-    },
-    {
-      "image": "/images/season-3.jpg",
-      "name": "Neon Pink Gilet",
+      "name": "Cashmere Jumper",
       "brand": "American Vintage"
     },
     {
+      "image": "/images/season-3.jpg",
+      "name": "Brown Checked Coat",
+      "brand": "Ichi"
+    },
+    {
       "image": "/images/season-4.jpg",
-      "name": "Striped Cotton Shirt",
+      "name": "Parka Coat",
       "brand": "Bellerose"
     },
     {
       "image": "/images/season-5.jpg",
-      "name": "Cotton Green Dress",
-      "brand": "Petite Mendigote"
+      "name": "Cotton Knit",
+      "brand": "Casbah"
     },
     {
       "image": "/images/season-6.jpg",
-      "name": "White Cotton Shirt",
-      "brand": "Lilith"
+      "name": "Gathered Cotton Shirt",
+      "brand": "Ichi"
+    },
+    {
+      "image": "/images/season-7.jpg",
+      "name": "Alpaca and Merino Wool Jumper",
+      "brand": "Maison Anje"
     }
   ],
   "edit_brands": [

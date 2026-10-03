@@ -15,8 +15,7 @@ collections:
         fields:
           - { label: "Hero Headline", name: hero_headline, widget: string }
           - { label: "Hero Subheading", name: hero_subheading, widget: string }
-          - { label: "Hero Image Left", name: hero_image_left, widget: image }
-          - { label: "Hero Image Right", name: hero_image_right, widget: image }
+          - { label: "Hero Image", name: hero_image, widget: image }
           - { label: "Store Copy 1", name: store_copy_1, widget: text }
           - { label: "Store Copy 2", name: store_copy_2, widget: text }
           - { label: "Store Copy 3", name: store_copy_3, widget: text }

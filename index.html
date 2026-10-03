@@ -14,7 +14,7 @@
 <meta property="og:url"         content="https://www.onehundredhighstreet.com/" />
 <meta property="og:title"       content="One Hundred High Street — Teddington" />
 <meta property="og:description" content="Independent womenswear boutique on Teddington High Street. A carefully chosen edit from over 20 labels. Come in and find something worth wearing." />
-<meta property="og:image"       content="https://www.onehundredhighstreet.com/images/hero-left.jpg" />
+<meta property="og:image"       content="https://www.onehundredhighstreet.com/images/hero.jpg" />
 <meta name="twitter:card"       content="summary_large_image" />
 
 <!-- Favicon — browser tab icon -->
@@ -251,18 +251,12 @@ img { display: block; max-width: 100%; height: auto; }
   background: var(--bg);
   overflow: hidden;
 }
-.hero-bg {
-  position: absolute; inset: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.hero-bg-left,
-.hero-bg-right { min-height: 100%; background-size: cover; background-position: center; }
-.hero-bg-left  { background: linear-gradient(rgba(246,240,235,0.08),rgba(246,240,235,0.08)), url('/images/hero-left.jpg') center/cover no-repeat; }
-.hero-bg-right {
-  background-image: linear-gradient(rgba(246,240,235,0.05),rgba(246,240,235,0.05)), url('/images/hero-right.jpg');
+.hero-bg { position: absolute; inset: 0; }
+.hero-bg-single {
+  min-height: 100%;
+  background-image: linear-gradient(rgba(246,240,235,0.06),rgba(246,240,235,0.06)), url('/images/hero.jpg');
   background-size: cover, cover;
-  background-position: center, top center;
+  background-position: center, center;
   background-repeat: no-repeat, no-repeat;
 }
 
@@ -461,6 +455,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .arrival-item.a1,
 .arrival-item.a2 { grid-column: span 2; }
+.arrival-item.a7 { grid-column: span 4; }
 .arrival-item { background: var(--bg); overflow: hidden; position: relative; }
 .arrival-img {
   width: 100%;
@@ -470,13 +465,15 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .arrival-item.a1 .arrival-img,
 .arrival-item.a2 .arrival-img { aspect-ratio: auto; height: 80vh; }
+.arrival-item.a7 .arrival-img { aspect-ratio: 1726 / 911; }
 .arrival-item:hover .arrival-img { transform: scale(1.03); }
-.lazy-loaded .arrival-item.a1 .arrival-img { background-image: url('/images/season-1.jpg'); background-position: top center; }
+.lazy-loaded .arrival-item.a1 .arrival-img { background-image: url('/images/season-1.jpg'); }
 .lazy-loaded .arrival-item.a2 .arrival-img { background-image: url('/images/season-2.jpg'); background-position: top center; }
 .lazy-loaded .arrival-item.a3 .arrival-img { background-image: url('/images/season-3.jpg'); }
 .lazy-loaded .arrival-item.a4 .arrival-img { background-image: url('/images/season-4.jpg'); }
 .lazy-loaded .arrival-item.a5 .arrival-img { background-image: url('/images/season-5.jpg'); }
 .lazy-loaded .arrival-item.a6 .arrival-img { background-image: url('/images/season-6.jpg'); }
+.lazy-loaded .arrival-item.a7 .arrival-img { background-image: url('/images/season-7.jpg'); }
 .arrival-label {
   position: absolute;
   bottom: 16px;
@@ -574,9 +571,11 @@ img { display: block; max-width: 100%; height: auto; }
 .look-item:nth-child(23) .look-brand-name,
 .look-item:nth-child(28) .look-brand-name { color: #fff; }
 
-/* White caption for season-6 */
-.arrival-item.a6 .arrival-name,
-.arrival-item.a6 .arrival-brand { color: #fff; }
+/* White labels — chosen per tile by WCAG contrast against its displayed crop */
+.arrival-item.a3 .arrival-name,
+.arrival-item.a3 .arrival-brand,
+.arrival-item.a5 .arrival-name,
+.arrival-item.a5 .arrival-brand { color: #fff; }
 
 
 /* ─────────────────────────────────────────
@@ -947,7 +946,6 @@ img { display: block; max-width: 100%; height: auto; }
   .nav-hamburger { display: flex; }
 
   .hero { padding-top: 53px; }
-  .hero-bg { grid-template-columns: 1fr; grid-template-rows: 42vh 50vh; }
   .hero-copy { left: 24px; right: 24px; bottom: 140px; max-width: none; }
   .hero-headline { font-size: clamp(40px, 10vw, 64px); }
   .hero-cta { left: 24px; right: auto; bottom: 32px; align-items: flex-start; flex-direction: row; gap: 16px; }
@@ -968,6 +966,7 @@ img { display: block; max-width: 100%; height: auto; }
   .arrival-item.a2 { grid-column: span 1; }
   .arrival-item.a1 .arrival-img,
   .arrival-item.a2 .arrival-img { height: auto; aspect-ratio: 3/4; }
+  .arrival-item.a7 { grid-column: span 2; }
 
   .look-grid { grid-template-columns: repeat(2, 1fr); }
   .look-img  { aspect-ratio: 3/4; }
@@ -1007,9 +1006,14 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 @media (max-width: 768px) {
-  .hero-bg { grid-template-columns: 1fr; grid-template-rows: 1fr; }
-  .hero-bg-left { display: none; }
-  .hero-bg-right { min-height: 100vh; }
+  /* A 1.93-wide image in a portrait viewport shows only ~24% of its
+     width. Anchor left so the crop keeps the left-hand model and drops
+     the right-hand one; 20% rather than 0% because the hard left edge
+     cuts her face. First position is the wash gradient, second the image. */
+  .hero-bg-single {
+    min-height: 100vh;
+    background-position: center, 20% center;
+  }
   .hero-headline { font-size: clamp(36px, 10vw, 56px); }
   .hero-copy { bottom: 160px; }
   .hero-cta { flex-direction: column; gap: 12px; }
@@ -1038,6 +1042,7 @@ img { display: block; max-width: 100%; height: auto; }
   .arrival-item.a2 { grid-column: span 1; }
   .arrival-item.a1 .arrival-img,
   .arrival-item.a2 .arrival-img { height: auto; aspect-ratio: 3/4; }
+  .arrival-item.a7 { grid-column: span 2; }
   .store-layout { grid-template-columns: 1fr; gap: 24px; }
   .store-statement { font-size: clamp(20px, 5vw, 28px); margin-bottom: 0; }
   .store-subtitle { font-size: clamp(20px, 5vw, 28px); }
@@ -1192,8 +1197,7 @@ img { display: block; max-width: 100%; height: auto; }
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-    <div class="hero-bg-left" data-cms="hero_image_left"></div>
-    <div class="hero-bg-right" data-cms="hero_image_right"></div>
+    <div class="hero-bg-single" data-cms="hero_image"></div>
   </div>
   <div class="hero-vignette"></div>
   <div class="hero-copy">
@@ -1249,12 +1253,13 @@ img { display: block; max-width: 100%; height: auto; }
   <h2 class="section-label"><span class="first">In</span> <span class="rest">Season</span></h2>
   <p class="section-intro">A snapshot of the things we're particularly fond of this season — while stocks last.</p>
   <div class="arrivals-grid" id="in-season-grid">
-    <div class="arrival-item a1"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Wax Cotton Coat</div><div class="arrival-brand">Kate Sheridan</div></div></div>
-    <div class="arrival-item a2"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Shirt</div><div class="arrival-brand">Sacrécoeur</div></div></div>
-    <div class="arrival-item a3"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Neon Pink Gilet</div><div class="arrival-brand">American Vintage</div></div></div>
-    <div class="arrival-item a4"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Striped Cotton Shirt</div><div class="arrival-brand">Bellerose</div></div></div>
-    <div class="arrival-item a5"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Knitted Shirt</div><div class="arrival-brand">Petite Mendigote</div></div></div>
-    <div class="arrival-item a6"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">White Cotton Shirt</div><div class="arrival-brand">Lilith</div></div></div>
+    <div class="arrival-item a1"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Faux Fur Bag</div><div class="arrival-brand">Bellerose</div></div></div>
+    <div class="arrival-item a2"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cashmere Jumper</div><div class="arrival-brand">American Vintage</div></div></div>
+    <div class="arrival-item a3"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Brown Checked Coat</div><div class="arrival-brand">Ichi</div></div></div>
+    <div class="arrival-item a4"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Parka Coat</div><div class="arrival-brand">Bellerose</div></div></div>
+    <div class="arrival-item a5"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Knit</div><div class="arrival-brand">Casbah</div></div></div>
+    <div class="arrival-item a6"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Gathered Cotton Shirt</div><div class="arrival-brand">Ichi</div></div></div>
+    <div class="arrival-item a7"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Alpaca and Merino Wool Jumper</div><div class="arrival-brand">Maison Anje</div></div></div>
   </div>
 </section>
 
