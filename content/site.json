@@ -12,18 +12,18 @@
   "in_season": [
     {
       "image": "/images/season-1.jpg",
-      "name": "Wax Cotton Coat",
-      "brand": "Kate Sheridan"
+      "name": "Brown Checked Coat",
+      "brand": "Ichi"
     },
     {
       "image": "/images/season-2.jpg",
-      "name": "Cotton Shirt",
-      "brand": "Sacrécoeur"
+      "name": "Cotton Knit",
+      "brand": "Casbah"
     },
     {
       "image": "/images/season-3.jpg",
-      "name": "Neon Pink Gilet",
-      "brand": "American Vintage"
+      "name": "Alpaca and Merino Wool Jumper",
+      "brand": "Maison Anje"
     },
     {
       "image": "/images/season-4.jpg",
@@ -32,33 +32,13 @@
     },
     {
       "image": "/images/season-5.jpg",
-      "name": "Cotton Knitted Shirt",
-      "brand": "Petite Mendigote"
+      "name": "Faux Fur Bag",
+      "brand": "Bellerose"
     },
     {
       "image": "/images/season-6.jpg",
-      "name": "White Cotton Shirt",
-      "brand": "Lilith"
-    },
-    {
-      "image": "/images/season-7.jpg",
-      "name": "Gathered Cotton Shirt",
-      "brand": "Ichi"
-    },
-    {
-      "image": "/images/season-8.jpg",
-      "name": "Brown Checked Coat",
-      "brand": "Ichi"
-    },
-    {
-      "image": "/images/season-9.jpg",
-      "name": "Cotton Knit",
-      "brand": "Casbah"
-    },
-    {
-      "image": "/images/season-10.jpg",
-      "name": "Alpaca and Merino Wool Jumper",
-      "brand": "Maison Anje"
+      "name": "Cashmere Jumper",
+      "brand": "American Vintage"
     }
   ],
   "edit_brands": [

@@ -453,8 +453,8 @@ img { display: block; max-width: 100%; height: auto; }
   gap: 3px;
   width: 100%;
 }
-.arrival-item.a1,
-.arrival-item.a2 { grid-column: span 2; }
+.arrival-item.a5,
+.arrival-item.a6 { grid-column: span 2; }
 .arrival-item { background: var(--bg); overflow: hidden; position: relative; }
 .arrival-img {
   width: 100%;
@@ -462,19 +462,15 @@ img { display: block; max-width: 100%; height: auto; }
   background: #ccc center/cover no-repeat;
   transition: transform 0.5s ease;
 }
-.arrival-item.a1 .arrival-img,
-.arrival-item.a2 .arrival-img { aspect-ratio: auto; height: 80vh; }
+.arrival-item.a5 .arrival-img,
+.arrival-item.a6 .arrival-img { aspect-ratio: auto; height: 80vh; }
 .arrival-item:hover .arrival-img { transform: scale(1.03); }
-.lazy-loaded .arrival-item.a1 .arrival-img { background-image: url('/images/season-1.jpg'); background-position: top center; }
-.lazy-loaded .arrival-item.a2 .arrival-img { background-image: url('/images/season-2.jpg'); background-position: top center; }
+.lazy-loaded .arrival-item.a1 .arrival-img { background-image: url('/images/season-1.jpg'); }
+.lazy-loaded .arrival-item.a2 .arrival-img { background-image: url('/images/season-2.jpg'); }
 .lazy-loaded .arrival-item.a3 .arrival-img { background-image: url('/images/season-3.jpg'); }
 .lazy-loaded .arrival-item.a4 .arrival-img { background-image: url('/images/season-4.jpg'); }
 .lazy-loaded .arrival-item.a5 .arrival-img { background-image: url('/images/season-5.jpg'); }
-.lazy-loaded .arrival-item.a6 .arrival-img { background-image: url('/images/season-6.jpg'); }
-.lazy-loaded .arrival-item.a7 .arrival-img { background-image: url('/images/season-7.jpg'); }
-.lazy-loaded .arrival-item.a8 .arrival-img { background-image: url('/images/season-8.jpg'); }
-.lazy-loaded .arrival-item.a9 .arrival-img { background-image: url('/images/season-9.jpg'); }
-.lazy-loaded .arrival-item.a10 .arrival-img { background-image: url('/images/season-10.jpg'); }
+.lazy-loaded .arrival-item.a6 .arrival-img { background-image: url('/images/season-6.jpg'); background-position: top center; }
 .arrival-label {
   position: absolute;
   bottom: 16px;
@@ -573,10 +569,10 @@ img { display: block; max-width: 100%; height: auto; }
 .look-item:nth-child(28) .look-brand-name { color: #fff; }
 
 /* White labels — chosen per tile by WCAG contrast against its displayed crop */
-.arrival-item.a8 .arrival-name,
-.arrival-item.a8 .arrival-brand,
-.arrival-item.a9 .arrival-name,
-.arrival-item.a9 .arrival-brand { color: #fff; }
+.arrival-item.a1 .arrival-name,
+.arrival-item.a1 .arrival-brand,
+.arrival-item.a2 .arrival-name,
+.arrival-item.a2 .arrival-brand { color: #fff; }
 
 
 /* ─────────────────────────────────────────
@@ -963,10 +959,10 @@ img { display: block; max-width: 100%; height: auto; }
   .arrivals .section-label,
   .arrivals .section-intro { padding-left: 24px; }
   .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
-  .arrival-item.a1,
-  .arrival-item.a2 { grid-column: span 1; }
-  .arrival-item.a1 .arrival-img,
-  .arrival-item.a2 .arrival-img { height: auto; aspect-ratio: 3/4; }
+  .arrival-item.a5,
+  .arrival-item.a6 { grid-column: span 1; }
+  .arrival-item.a5 .arrival-img,
+  .arrival-item.a6 .arrival-img { height: auto; aspect-ratio: 3/4; }
 
   .look-grid { grid-template-columns: repeat(2, 1fr); }
   .look-img  { aspect-ratio: 3/4; }
@@ -1031,10 +1027,10 @@ img { display: block; max-width: 100%; height: auto; }
   .arrivals .section-label,
   .arrivals .section-intro { padding-left: 20px; }
   .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
-  .arrival-item.a1,
-  .arrival-item.a2 { grid-column: span 1; }
-  .arrival-item.a1 .arrival-img,
-  .arrival-item.a2 .arrival-img { height: auto; aspect-ratio: 3/4; }
+  .arrival-item.a5,
+  .arrival-item.a6 { grid-column: span 1; }
+  .arrival-item.a5 .arrival-img,
+  .arrival-item.a6 .arrival-img { height: auto; aspect-ratio: 3/4; }
   .store-layout { grid-template-columns: 1fr; gap: 24px; }
   .store-statement { font-size: clamp(20px, 5vw, 28px); margin-bottom: 0; }
   .store-subtitle { font-size: clamp(20px, 5vw, 28px); }
@@ -1245,16 +1241,12 @@ img { display: block; max-width: 100%; height: auto; }
   <h2 class="section-label"><span class="first">In</span> <span class="rest">Season</span></h2>
   <p class="section-intro">A snapshot of the things we're particularly fond of this season — while stocks last.</p>
   <div class="arrivals-grid" id="in-season-grid">
-    <div class="arrival-item a1"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Wax Cotton Coat</div><div class="arrival-brand">Kate Sheridan</div></div></div>
-    <div class="arrival-item a2"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Shirt</div><div class="arrival-brand">Sacrécoeur</div></div></div>
-    <div class="arrival-item a3"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Neon Pink Gilet</div><div class="arrival-brand">American Vintage</div></div></div>
+    <div class="arrival-item a1"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Brown Checked Coat</div><div class="arrival-brand">Ichi</div></div></div>
+    <div class="arrival-item a2"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Knit</div><div class="arrival-brand">Casbah</div></div></div>
+    <div class="arrival-item a3"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Alpaca and Merino Wool Jumper</div><div class="arrival-brand">Maison Anje</div></div></div>
     <div class="arrival-item a4"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Parka Coat</div><div class="arrival-brand">Bellerose</div></div></div>
-    <div class="arrival-item a5"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Knitted Shirt</div><div class="arrival-brand">Petite Mendigote</div></div></div>
-    <div class="arrival-item a6"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">White Cotton Shirt</div><div class="arrival-brand">Lilith</div></div></div>
-    <div class="arrival-item a7"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Gathered Cotton Shirt</div><div class="arrival-brand">Ichi</div></div></div>
-    <div class="arrival-item a8"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Brown Checked Coat</div><div class="arrival-brand">Ichi</div></div></div>
-    <div class="arrival-item a9"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cotton Knit</div><div class="arrival-brand">Casbah</div></div></div>
-    <div class="arrival-item a10"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Alpaca and Merino Wool Jumper</div><div class="arrival-brand">Maison Anje</div></div></div>
+    <div class="arrival-item a5"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Faux Fur Bag</div><div class="arrival-brand">Bellerose</div></div></div>
+    <div class="arrival-item a6"><div class="arrival-img"></div><div class="arrival-label"><div class="arrival-name">Cashmere Jumper</div><div class="arrival-brand">American Vintage</div></div></div>
   </div>
 </section>
 
