@@ -12,18 +12,18 @@
   "in_season": [
     {
       "image": "/images/season-1.jpg",
-      "name": "Brown Checked Coat",
-      "brand": "Ichi"
+      "name": "Faux Fur Bag",
+      "brand": "Bellerose"
     },
     {
       "image": "/images/season-2.jpg",
-      "name": "Cotton Knit",
-      "brand": "Casbah"
+      "name": "Cashmere Jumper",
+      "brand": "American Vintage"
     },
     {
       "image": "/images/season-3.jpg",
-      "name": "Alpaca and Merino Wool Jumper",
-      "brand": "Maison Anje"
+      "name": "Brown Checked Coat",
+      "brand": "Ichi"
     },
     {
       "image": "/images/season-4.jpg",
@@ -32,13 +32,18 @@
     },
     {
       "image": "/images/season-5.jpg",
-      "name": "Faux Fur Bag",
-      "brand": "Bellerose"
+      "name": "Cotton Knit",
+      "brand": "Casbah"
     },
     {
       "image": "/images/season-6.jpg",
-      "name": "Cashmere Jumper",
-      "brand": "American Vintage"
+      "name": "Gathered Cotton Shirt",
+      "brand": "Ichi"
+    },
+    {
+      "image": "/images/season-7.jpg",
+      "name": "Alpaca and Merino Wool Jumper",
+      "brand": "Maison Anje"
     }
   ],
   "edit_brands": [
